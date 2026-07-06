@@ -13,7 +13,7 @@
   const CONFIG = {
     WAVE_NUMBER: "+226 75490747",        // 👉 remplace par TON numéro Wave si différent
     WHATSAPP_NUMBER: "22675490747",      // 👉 numéro qui reçoit la notif rapide (optionnel)
-    GOOGLE_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbxNNlbaQ2uJzWT9TMRu23mIlt5SfVVjvkJ87SHpBTrzZBF8nC_IbW7JMImCiGKPlyN5/exec",
+    WEB3FORMS_KEY: "ac62b3f4-bf8b-4285-a0a3-4d25b067ad93",
     EVENT_NAME: "Formation Privée — L'Entrepreneur Quantique",
     EVENT_DATE: "Dimanche 12 Juillet 2026",
     EVENT_HORAIRE: "08h00 – 18h00",
@@ -188,7 +188,10 @@
       <button class="copy-btn" onclick="copierNumero()">📋 Copier le numéro</button>
     </div>
 
-    <form id="regForm" action="" method="POST" enctype="multipart/form-data" target="hidden_iframe">
+    <form id="regForm">
+      <input type="hidden" name="access_key" value="">
+      <input type="hidden" name="subject" value="">
+      <input type="hidden" name="from_name" value="Site Inscription Formation URS">
       <input type="hidden" name="nom" id="hiddenNom">
       <input type="hidden" name="prenom" id="hiddenPrenom">
       <input type="hidden" name="fonction" id="hiddenFonction">
@@ -212,12 +215,10 @@
     <button class="btn btn-whatsapp" onclick="notifierWhatsapp()">💬 Prévenir aussi par WhatsApp (rapide)</button>
 
     <div class="footer-note">
-      Ton inscription et ta capture sont enregistrées directement dans le tableau de suivi.
+      Ton inscription et ta capture sont envoyées directement par email à l'organisateur.
       Le bouton WhatsApp est optionnel, pour une notification immédiate.
     </div>
   </div>
-
-  <iframe name="hidden_iframe" style="display:none;"></iframe>
   <div class="card hidden" id="cardSuccess" style="text-align:center;">
     <div style="font-size:44px;">✅</div>
     <h2 style="margin-top:6px;">Inscription envoyée !</h2>
@@ -302,7 +303,7 @@ Fonction : ${fonction}
 Téléphone : ${tel}
 Formule choisie : ${typeChoisi}
 Montant déclaré : ${montantChoisi.toLocaleString('fr-FR')} F
-📎 Capture envoyée automatiquement dans le tableau de suivi (Google Sheet).`;
+📎 Capture envoyée automatiquement par email.`;
   }
 
   function notifierWhatsapp(){
@@ -322,8 +323,8 @@ Montant déclaré : ${montantChoisi.toLocaleString('fr-FR')} F
       return;
     }
 
-    if(CONFIG.GOOGLE_SCRIPT_URL.startsWith("COLLE_ICI")){
-      alert("⚠️ Le lien de sauvegarde (Google Sheet) n'est pas encore configuré par l'organisateur. Contacte directement le WhatsApp ci-dessous.");
+    if(CONFIG.WEB3FORMS_KEY.startsWith("COLLE_ICI")){
+      alert("⚠️ L'envoi n'est pas encore configuré par l'organisateur. Contacte directement le WhatsApp ci-dessous.");
       return;
     }
 
@@ -331,24 +332,40 @@ Montant déclaré : ${montantChoisi.toLocaleString('fr-FR')} F
     btn.disabled = true;
     btn.textContent = "Envoi en cours...";
 
+    const form = document.getElementById('regForm');
+    form.querySelector('[name="access_key"]').value = CONFIG.WEB3FORMS_KEY;
+    form.querySelector('[name="subject"]').value = `Nouvelle inscription : ${nom} ${prenom} — ${CONFIG.EVENT_NAME}`;
     document.getElementById('hiddenNom').value = nom;
     document.getElementById('hiddenPrenom').value = prenom;
     document.getElementById('hiddenFonction').value = fonction;
     document.getElementById('hiddenTelephone').value = tel;
     document.getElementById('hiddenFormule').value = typeChoisi;
-    document.getElementById('hiddenMontant').value = montantChoisi;
+    document.getElementById('hiddenMontant').value = montantChoisi + ' F';
 
-    const form = document.getElementById('regForm');
-    form.action = CONFIG.GOOGLE_SCRIPT_URL;
-    form.submit();
+    const formData = new FormData(form);
 
-    // On ne peut pas lire la réponse cross-origin de l'iframe (normal, sécurité navigateur).
-    // On considère l'envoi réussi après un court délai laissant le temps à la requête de partir.
-    setTimeout(() => {
-      document.getElementById('cardPaiement').classList.add('hidden');
-      document.getElementById('cardSuccess').classList.remove('hidden');
-      document.getElementById('cardSuccess').scrollIntoView({behavior:'smooth'});
-    }, 2500);
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: formData
+    })
+    .then(res => res.json())
+    .then(data => {
+      if(data.success){
+        document.getElementById('cardPaiement').classList.add('hidden');
+        document.getElementById('cardSuccess').classList.remove('hidden');
+        document.getElementById('cardSuccess').scrollIntoView({behavior:'smooth'});
+      } else {
+        alert("L'envoi a échoué : " + (data.message || "erreur inconnue") + ". Réessaie, ou préviens par WhatsApp.");
+        btn.disabled = false;
+        btn.textContent = "✅ Envoyer mon inscription + ma capture";
+      }
+    })
+    .catch(() => {
+      alert("Une erreur réseau est survenue. Réessaie, ou préviens directement par WhatsApp.");
+      btn.disabled = false;
+      btn.textContent = "✅ Envoyer mon inscription + ma capture";
+    });
   }
 </script>
 
