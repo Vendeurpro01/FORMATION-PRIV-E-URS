@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inscription - Formation Privée URS ACADEMY</title>
+<style>
+  /* ================================================================
+     ⚙️ CONFIG — à modifier facilement par Yannick, tout est ici
+     ================================================================ */
+</style>
+<script>
+  const CONFIG = {
+    WAVE_NUMBER: "+226 75490747",        // 👉 remplace par TON numéro Wave si différent
+    WHATSAPP_NUMBER: "22675490747",      // 👉 numéro qui reçoit la notif rapide (optionnel)
+    GOOGLE_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbxNNlbaQ2uJzWT9TMRu23mIlt5SfVVjvkJ87SHpBTrzZBF8nC_IbW7JMImCiGKPlyN5/exec",
+    EVENT_NAME: "Formation Privée — L'Entrepreneur Quantique",
+    EVENT_DATE: "Dimanche 12 Juillet 2026",
+    EVENT_HORAIRE: "08h00 – 18h00",
+    EVENT_LIEU: "Siège URS ACADEMY, Ouaga 2000",
+    PRIX_INSCRIPTION: 5000,
+    PRIX_TOTAL: 35000,
+    PRIX_SOLDE: 30000
+  };
+</script>
+<style>
+  :root{
+    --orange1:#ff9a1f; --orange2:#f5750c; --orange3:#e8480f; --orange4:#d1240f;
+    --blue:#1476E0; --red:#E2340F; --black:#141414; --green:#25D366;
+  }
+  *{box-sizing:border-box; margin:0; padding:0; font-family:'Segoe UI', Poppins, Arial, sans-serif;}
+  body{background:#f4f4f4; color:#1a1a1a;}
+  .banner{
+    background: linear-gradient(135deg, var(--orange1) 0%, var(--orange2) 28%, var(--orange3) 62%, var(--orange4) 100%);
+    padding: 34px 22px 40px 22px;
+    color:#fff;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .banner:before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      repeating-linear-gradient(45deg, rgba(255,255,255,0.05) 0 2px, transparent 2px 30px),
+      repeating-linear-gradient(-45deg, rgba(0,0,0,0.06) 0 2px, transparent 2px 30px);
+    mix-blend-mode: overlay;
+  }
+  .logo-bubble{
+    position:relative; z-index:1;
+    background:#fff; display:inline-block; border-radius:20px 20px 20px 0;
+    padding:14px 26px; margin-bottom:18px; box-shadow:0 6px 18px rgba(0,0,0,0.18);
+  }
+  .logo-bubble .brand{ font-weight:800; font-size:26px; letter-spacing:1px;}
+  .logo-bubble .brand .urs{color:var(--blue);}
+  .logo-bubble .brand .academy{color:var(--orange3);}
+  .logo-bubble .slogan{ font-size:12px; color:#555; font-weight:600; }
+  .banner h1{ position:relative; z-index:1; font-size:26px; font-weight:800; line-height:1.3; text-shadow:0 3px 8px rgba(0,0,0,.25); }
+  .banner .sub{ position:relative; z-index:1; font-size:15px; font-weight:600; margin-top:8px; opacity:.96; }
+  .infos-pratiques{
+    position:relative; z-index:1;
+    margin-top:20px; background:rgba(0,0,0,0.18); border-radius:12px;
+    padding:14px 16px; font-size:14px; font-weight:600; text-align:left; display:inline-block;
+  }
+  .infos-pratiques div{margin-bottom:4px;}
+
+  .container{ max-width:520px; margin:0 auto; padding:22px 18px 60px 18px; }
+
+  .card{ background:#fff; border-radius:16px; padding:20px; margin-bottom:18px; box-shadow:0 4px 16px rgba(0,0,0,0.06); }
+  .card h2{ font-size:18px; font-weight:800; color:var(--orange3); margin-bottom:12px; }
+  .checklist div{ font-size:15px; font-weight:600; margin-bottom:8px; }
+  .checklist .sub{ font-size:13px; color:#666; margin-left:30px; font-weight:500; }
+  .bonus{ font-size:13px; color:#555; margin-top:10px; line-height:1.6; }
+
+  .price-box{ display:flex; gap:10px; margin-top:6px; }
+  .price-tag{ flex:1; border:2px solid #eee; border-radius:12px; padding:14px 10px; text-align:center; cursor:pointer; transition:.15s; }
+  .price-tag.selected{ border-color:var(--red); background:#fff5f2; }
+  .price-tag .amount{ font-size:22px; font-weight:800; color:var(--black); }
+  .price-tag .label{ font-size:12px; font-weight:700; color:var(--red); margin-top:4px; }
+  .price-tag .detail{ font-size:11px; color:#777; margin-top:4px; }
+
+  label{ display:block; font-size:13px; font-weight:700; color:#333; margin:14px 0 6px; }
+  input[type=text], input[type=tel]{
+    width:100%; padding:13px 14px; border-radius:10px; border:1.5px solid #ddd; font-size:15px;
+  }
+  input:focus{ outline:none; border-color:var(--blue); }
+
+  .btn{
+    display:block; width:100%; text-align:center; padding:16px; border-radius:12px;
+    font-weight:800; font-size:16px; border:none; cursor:pointer; margin-top:20px;
+  }
+  .btn-primary{ background:var(--blue); color:#fff; }
+  .btn-wave{ background:#00A3E0; color:#fff; }
+  .btn-whatsapp{ background:var(--green); color:#fff; }
+  .btn:disabled{ opacity:.5; }
+
+  .hidden{ display:none; }
+
+  .wave-instructions{ background:#eef8fd; border:1.5px dashed #00A3E0; border-radius:12px; padding:16px; text-align:center; margin-top:10px; }
+  .wave-instructions .num{ font-size:24px; font-weight:800; color:#00699a; margin:8px 0; letter-spacing:1px; }
+  .copy-btn{ background:#00A3E0; color:#fff; border:none; padding:8px 16px; border-radius:8px; font-weight:700; font-size:13px; cursor:pointer; }
+  .amount-due{ font-size:34px; font-weight:800; color:var(--red); text-align:center; margin:10px 0; }
+
+  .footer-note{ text-align:center; font-size:12px; color:#888; margin-top:20px; line-height:1.6; }
+
+  .upload-zone{
+    display:block; border:3px dashed #00A3E0; border-radius:14px;
+    background:#f4fbff; text-align:center; padding:34px 16px; cursor:pointer;
+    margin-top:8px; transition:.15s;
+  }
+  .upload-zone:hover{ background:#e9f7fd; }
+  .upload-zone .icon{ font-size:48px; }
+  .upload-zone .txt1{ font-size:16px; font-weight:800; color:#00699a; margin-top:10px; }
+  .upload-zone .txt2{ font-size:12px; color:#777; margin-top:4px; }
+  .upload-zone.has-image{ padding:14px; border-style:solid; }
+  #capture{ display:none; }
+</style>
+</head>
+<body>
+
+<div class="banner">
+  <div class="logo-bubble">
+    <div class="brand"><span class="urs">URS</span> <span class="academy">ACADEMY</span></div>
+    <div class="slogan">L'art d'innover et de bien faire</div>
+  </div>
+  <h1 id="eventName"></h1>
+  <div class="sub">Deviens autonome financièrement grâce au Digital</div>
+  <div class="infos-pratiques" id="infosPratiques"></div>
+</div>
+
+<div class="container">
+
+  <div class="card">
+    <h2>📋 Au programme</h2>
+    <div class="checklist">
+      <div>✅ Marketing Digital</div>
+      <div>✅ E-commerce</div>
+      <div class="sub">— Shopify · Alibaba</div>
+      <div>✅ Vente</div>
+      <div>✅ Intelligence Artificielle (IA)</div>
+    </div>
+    <div class="bonus">
+      🎁 1 mois d'accès à la Communauté des Millionnaires EDL<br>
+      🎁 1 mois d'accès au Siège URS ACADEMY<br>
+      🎁 3 mois d'accompagnement privé
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>💳 Formulaire d'inscription</h2>
+
+    <label for="nom">Nom</label>
+    <input type="text" id="nom" placeholder="Ton nom">
+
+    <label for="prenom">Prénom</label>
+    <input type="text" id="prenom" placeholder="Ton prénom">
+
+    <label for="fonction">Fonction / Profession</label>
+    <input type="text" id="fonction" placeholder="Ex : Étudiant, Commerçant, Entrepreneur...">
+
+    <label for="telephone">Téléphone (WhatsApp)</label>
+    <input type="tel" id="telephone" placeholder="Ex : 70 00 00 00">
+
+    <label>Choisis ton mode de paiement</label>
+    <div class="price-box">
+      <div class="price-tag selected" id="tagInscription" onclick="choisirMontant('inscription')">
+        <div class="amount" id="montantInscription"></div>
+        <div class="label">Inscription seule</div>
+        <div class="detail">Solde 30 000 F le jour J</div>
+      </div>
+      <div class="price-tag" id="tagTotal" onclick="choisirMontant('total')">
+        <div class="amount" id="montantTotal"></div>
+        <div class="label">Paiement total</div>
+        <div class="detail">Plus rien à payer</div>
+      </div>
+    </div>
+
+    <button class="btn btn-primary" onclick="validerFormulaire()">Continuer vers le paiement</button>
+  </div>
+
+  <div class="card hidden" id="cardPaiement">
+    <h2>📲 Paiement via Wave</h2>
+    <div>Montant à payer :</div>
+    <div class="amount-due" id="montantAPayer"></div>
+    <div class="wave-instructions">
+      Envoie ce montant via l'application <b>Wave</b> au numéro :
+      <div class="num" id="waveNum"></div>
+      <button class="copy-btn" onclick="copierNumero()">📋 Copier le numéro</button>
+    </div>
+
+    <label for="capture">📎 Preuve de paiement (obligatoire)</label>
+    <label class="upload-zone" id="uploadZone" for="capture">
+      <div id="uploadDefault">
+        <div class="icon">🖼️⬆️</div>
+        <div class="txt1">Cliquez ici pour télécharger une image</div>
+        <div class="txt2">La capture d'écran de ton paiement Wave = ta preuve de paiement</div>
+      </div>
+      <img id="previewImg" style="display:none;max-width:100%;border-radius:10px;">
+    </label>
+    <input type="file" id="capture" accept="image/*" onchange="previewCapture()">
+
+    <button class="btn btn-primary" id="btnEnvoyer" onclick="confirmerInscription()">✅ Envoyer mon inscription + ma capture</button>
+    <button class="btn btn-whatsapp" onclick="notifierWhatsapp()">💬 Prévenir aussi par WhatsApp (rapide)</button>
+
+    <div class="footer-note">
+      Ton inscription et ta capture sont enregistrées directement dans le tableau de suivi.
+      Le bouton WhatsApp est optionnel, pour une notification immédiate.
+    </div>
+  </div>
+
+  <div class="card hidden" id="cardSuccess" style="text-align:center;">
+    <div style="font-size:44px;">✅</div>
+    <h2 style="margin-top:6px;">Inscription envoyée !</h2>
+    <div class="footer-note">Ta demande a bien été transmise avec ta capture de paiement. Tu recevras une confirmation par WhatsApp.</div>
+  </div>
+
+</div>
+
+
+<script>
+  document.getElementById('eventName').textContent = CONFIG.EVENT_NAME.toUpperCase();
+  document.getElementById('infosPratiques').innerHTML =
+    `📅 ${CONFIG.EVENT_DATE}<br>🕘 ${CONFIG.EVENT_HORAIRE}<br>📍 ${CONFIG.EVENT_LIEU}`;
+  document.getElementById('montantInscription').textContent = CONFIG.PRIX_INSCRIPTION.toLocaleString('fr-FR') + ' F';
+  document.getElementById('montantTotal').textContent = CONFIG.PRIX_TOTAL.toLocaleString('fr-FR') + ' F';
+  document.getElementById('waveNum').textContent = CONFIG.WAVE_NUMBER;
+
+  let montantChoisi = CONFIG.PRIX_INSCRIPTION;
+  let typeChoisi = 'Inscription seule (5 000 F)';
+
+  function choisirMontant(type){
+    if(type === 'inscription'){
+      montantChoisi = CONFIG.PRIX_INSCRIPTION;
+      typeChoisi = 'Inscription seule (5 000 F, solde 30 000 F le jour J)';
+      document.getElementById('tagInscription').classList.add('selected');
+      document.getElementById('tagTotal').classList.remove('selected');
+    } else {
+      montantChoisi = CONFIG.PRIX_TOTAL;
+      typeChoisi = 'Paiement total (35 000 F)';
+      document.getElementById('tagTotal').classList.add('selected');
+      document.getElementById('tagInscription').classList.remove('selected');
+    }
+  }
+
+  function validerFormulaire(){
+    const nom = document.getElementById('nom').value.trim();
+    const prenom = document.getElementById('prenom').value.trim();
+    const fonction = document.getElementById('fonction').value.trim();
+    const tel = document.getElementById('telephone').value.trim();
+
+    if(!nom || !prenom || !fonction || !tel){
+      alert("Merci de remplir tous les champs avant de continuer.");
+      return;
+    }
+
+    document.getElementById('montantAPayer').textContent = montantChoisi.toLocaleString('fr-FR') + ' F';
+    document.getElementById('cardPaiement').classList.remove('hidden');
+    document.getElementById('cardPaiement').scrollIntoView({behavior:'smooth'});
+  }
+
+  function copierNumero(){
+    navigator.clipboard.writeText(CONFIG.WAVE_NUMBER.replace(/\s/g,''));
+    alert("Numéro Wave copié : " + CONFIG.WAVE_NUMBER);
+  }
+
+  function previewCapture(){
+    const fileInput = document.getElementById('capture');
+    const img = document.getElementById('previewImg');
+    const zone = document.getElementById('uploadZone');
+    const defaultTxt = document.getElementById('uploadDefault');
+    if(fileInput.files && fileInput.files[0]){
+      const reader = new FileReader();
+      reader.onload = e => {
+        img.src = e.target.result;
+        img.style.display = 'block';
+        defaultTxt.style.display = 'none';
+        zone.classList.add('has-image');
+      };
+      reader.readAsDataURL(fileInput.files[0]);
+    }
+  }
+
+  function getMessageTexte(){
+    const nom = document.getElementById('nom').value.trim();
+    const prenom = document.getElementById('prenom').value.trim();
+    const fonction = document.getElementById('fonction').value.trim();
+    const tel = document.getElementById('telephone').value.trim();
+    return `Nouvelle inscription - ${CONFIG.EVENT_NAME}
+Nom : ${nom}
+Prénom : ${prenom}
+Fonction : ${fonction}
+Téléphone : ${tel}
+Formule choisie : ${typeChoisi}
+Montant déclaré : ${montantChoisi.toLocaleString('fr-FR')} F
+📎 Capture envoyée automatiquement dans le tableau de suivi (Google Sheet).`;
+  }
+
+  function notifierWhatsapp(){
+    const url = `https://wa.me/${CONFIG.WHATSAPP_NUMBER}?text=${encodeURIComponent(getMessageTexte())}`;
+    window.open(url, '_blank');
+  }
+
+  function confirmerInscription(){
+    const nom = document.getElementById('nom').value.trim();
+    const prenom = document.getElementById('prenom').value.trim();
+    const fonction = document.getElementById('fonction').value.trim();
+    const tel = document.getElementById('telephone').value.trim();
+    const fileInput = document.getElementById('capture');
+
+    if(!fileInput.files || !fileInput.files[0]){
+      alert("Merci de joindre la capture d'écran de ton paiement Wave avant d'envoyer.");
+      return;
+    }
+
+    if(CONFIG.GOOGLE_SCRIPT_URL.startsWith("COLLE_ICI")){
+      alert("⚠️ Le lien de sauvegarde (Google Sheet) n'est pas encore configuré par l'organisateur. Contacte directement le WhatsApp ci-dessous.");
+      return;
+    }
+
+    const btn = document.getElementById('btnEnvoyer');
+    btn.disabled = true;
+    btn.textContent = "Envoi en cours...";
+
+    const formData = new FormData();
+    formData.append('nom', nom);
+    formData.append('prenom', prenom);
+    formData.append('fonction', fonction);
+    formData.append('telephone', tel);
+    formData.append('formule', typeChoisi);
+    formData.append('montant', montantChoisi);
+    formData.append('capture', fileInput.files[0]);
+
+    fetch(CONFIG.GOOGLE_SCRIPT_URL, { method: 'POST', body: formData, mode: 'no-cors' })
+      .then(() => {
+        document.getElementById('cardPaiement').classList.add('hidden');
+        document.getElementById('cardSuccess').classList.remove('hidden');
+        document.getElementById('cardSuccess').scrollIntoView({behavior:'smooth'});
+      })
+      .catch(() => {
+        alert("Une erreur est survenue lors de l'envoi. Réessaie, ou préviens directement par WhatsApp.");
+        btn.disabled = false;
+        btn.textContent = "✅ Envoyer mon inscription + ma capture";
+      });
+  }
+</script>
+
+</body>
+</html>
