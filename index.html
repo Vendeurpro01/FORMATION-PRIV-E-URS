@@ -13,7 +13,7 @@
   const CONFIG = {
     WAVE_NUMBER: "+226 75490747",        // 👉 remplace par TON numéro Wave si différent
     WHATSAPP_NUMBER: "22675490747",      // 👉 numéro qui reçoit la notif rapide (optionnel)
-    WEB3FORMS_KEY: "ac62b3f4-bf8b-4285-a0a3-4d25b067ad93",
+    NOTIFY_EMAIL: "kiendrebeogoyannick7@gmail.com",
     EVENT_NAME: "Formation Privée — L'Entrepreneur Quantique",
     EVENT_DATE: "Dimanche 12 Juillet 2026",
     EVENT_HORAIRE: "08h00 – 18h00",
@@ -189,9 +189,8 @@
     </div>
 
     <form id="regForm">
-      <input type="hidden" name="access_key" value="">
-      <input type="hidden" name="subject" value="">
-      <input type="hidden" name="from_name" value="Site Inscription Formation URS">
+      <input type="hidden" name="_subject" value="">
+      <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="nom" id="hiddenNom">
       <input type="hidden" name="prenom" id="hiddenPrenom">
       <input type="hidden" name="fonction" id="hiddenFonction">
@@ -323,7 +322,7 @@ Montant déclaré : ${montantChoisi.toLocaleString('fr-FR')} F
       return;
     }
 
-    if(CONFIG.WEB3FORMS_KEY.startsWith("COLLE_ICI")){
+    if(CONFIG.NOTIFY_EMAIL.startsWith("COLLE_ICI")){
       alert("⚠️ L'envoi n'est pas encore configuré par l'organisateur. Contacte directement le WhatsApp ci-dessous.");
       return;
     }
@@ -333,8 +332,7 @@ Montant déclaré : ${montantChoisi.toLocaleString('fr-FR')} F
     btn.textContent = "Envoi en cours...";
 
     const form = document.getElementById('regForm');
-    form.querySelector('[name="access_key"]').value = CONFIG.WEB3FORMS_KEY;
-    form.querySelector('[name="subject"]').value = `Nouvelle inscription : ${nom} ${prenom} — ${CONFIG.EVENT_NAME}`;
+    form.querySelector('[name="_subject"]').value = `Nouvelle inscription : ${nom} ${prenom} — ${CONFIG.EVENT_NAME}`;
     document.getElementById('hiddenNom').value = nom;
     document.getElementById('hiddenPrenom').value = prenom;
     document.getElementById('hiddenFonction').value = fonction;
@@ -344,19 +342,19 @@ Montant déclaré : ${montantChoisi.toLocaleString('fr-FR')} F
 
     const formData = new FormData(form);
 
-    fetch('https://api.web3forms.com/submit', {
+    fetch(`https://formsubmit.co/ajax/${CONFIG.NOTIFY_EMAIL}`, {
       method: 'POST',
       headers: { 'Accept': 'application/json' },
       body: formData
     })
     .then(res => res.json())
     .then(data => {
-      if(data.success){
+      if(data && (data.success === "true" || data.success === true)){
         document.getElementById('cardPaiement').classList.add('hidden');
         document.getElementById('cardSuccess').classList.remove('hidden');
         document.getElementById('cardSuccess').scrollIntoView({behavior:'smooth'});
       } else {
-        alert("L'envoi a échoué : " + (data.message || "erreur inconnue") + ". Réessaie, ou préviens par WhatsApp.");
+        alert("L'envoi a échoué. Réessaie, ou préviens par WhatsApp. (Astuce : si c'est le tout premier envoi, vérifie la boîte mail de l'organisateur pour confirmer l'activation de FormSubmit.)");
         btn.disabled = false;
         btn.textContent = "✅ Envoyer mon inscription + ma capture";
       }
