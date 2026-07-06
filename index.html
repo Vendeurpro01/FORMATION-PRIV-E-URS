@@ -188,18 +188,27 @@
       <button class="copy-btn" onclick="copierNumero()">📋 Copier le numéro</button>
     </div>
 
-    <label for="capture">📎 Preuve de paiement (obligatoire)</label>
-    <label class="upload-zone" id="uploadZone" for="capture">
-      <div id="uploadDefault">
-        <div class="icon">🖼️⬆️</div>
-        <div class="txt1">Cliquez ici pour télécharger une image</div>
-        <div class="txt2">La capture d'écran de ton paiement Wave = ta preuve de paiement</div>
-      </div>
-      <img id="previewImg" style="display:none;max-width:100%;border-radius:10px;">
-    </label>
-    <input type="file" id="capture" accept="image/*" onchange="previewCapture()">
+    <form id="regForm" action="" method="POST" enctype="multipart/form-data" target="hidden_iframe">
+      <input type="hidden" name="nom" id="hiddenNom">
+      <input type="hidden" name="prenom" id="hiddenPrenom">
+      <input type="hidden" name="fonction" id="hiddenFonction">
+      <input type="hidden" name="telephone" id="hiddenTelephone">
+      <input type="hidden" name="formule" id="hiddenFormule">
+      <input type="hidden" name="montant" id="hiddenMontant">
 
-    <button class="btn btn-primary" id="btnEnvoyer" onclick="confirmerInscription()">✅ Envoyer mon inscription + ma capture</button>
+      <label for="capture">📎 Preuve de paiement (obligatoire)</label>
+      <label class="upload-zone" id="uploadZone" for="capture">
+        <div id="uploadDefault">
+          <div class="icon">🖼️⬆️</div>
+          <div class="txt1">Cliquez ici pour télécharger une image</div>
+          <div class="txt2">La capture d'écran de ton paiement Wave = ta preuve de paiement</div>
+        </div>
+        <img id="previewImg" style="display:none;max-width:100%;border-radius:10px;">
+      </label>
+      <input type="file" id="capture" name="capture" accept="image/*" onchange="previewCapture()">
+
+      <button type="button" class="btn btn-primary" id="btnEnvoyer" onclick="confirmerInscription()">✅ Envoyer mon inscription + ma capture</button>
+    </form>
     <button class="btn btn-whatsapp" onclick="notifierWhatsapp()">💬 Prévenir aussi par WhatsApp (rapide)</button>
 
     <div class="footer-note">
@@ -208,6 +217,7 @@
     </div>
   </div>
 
+  <iframe name="hidden_iframe" style="display:none;"></iframe>
   <div class="card hidden" id="cardSuccess" style="text-align:center;">
     <div style="font-size:44px;">✅</div>
     <h2 style="margin-top:6px;">Inscription envoyée !</h2>
@@ -321,26 +331,24 @@ Montant déclaré : ${montantChoisi.toLocaleString('fr-FR')} F
     btn.disabled = true;
     btn.textContent = "Envoi en cours...";
 
-    const formData = new FormData();
-    formData.append('nom', nom);
-    formData.append('prenom', prenom);
-    formData.append('fonction', fonction);
-    formData.append('telephone', tel);
-    formData.append('formule', typeChoisi);
-    formData.append('montant', montantChoisi);
-    formData.append('capture', fileInput.files[0]);
+    document.getElementById('hiddenNom').value = nom;
+    document.getElementById('hiddenPrenom').value = prenom;
+    document.getElementById('hiddenFonction').value = fonction;
+    document.getElementById('hiddenTelephone').value = tel;
+    document.getElementById('hiddenFormule').value = typeChoisi;
+    document.getElementById('hiddenMontant').value = montantChoisi;
 
-    fetch(CONFIG.GOOGLE_SCRIPT_URL, { method: 'POST', body: formData, mode: 'no-cors' })
-      .then(() => {
-        document.getElementById('cardPaiement').classList.add('hidden');
-        document.getElementById('cardSuccess').classList.remove('hidden');
-        document.getElementById('cardSuccess').scrollIntoView({behavior:'smooth'});
-      })
-      .catch(() => {
-        alert("Une erreur est survenue lors de l'envoi. Réessaie, ou préviens directement par WhatsApp.");
-        btn.disabled = false;
-        btn.textContent = "✅ Envoyer mon inscription + ma capture";
-      });
+    const form = document.getElementById('regForm');
+    form.action = CONFIG.GOOGLE_SCRIPT_URL;
+    form.submit();
+
+    // On ne peut pas lire la réponse cross-origin de l'iframe (normal, sécurité navigateur).
+    // On considère l'envoi réussi après un court délai laissant le temps à la requête de partir.
+    setTimeout(() => {
+      document.getElementById('cardPaiement').classList.add('hidden');
+      document.getElementById('cardSuccess').classList.remove('hidden');
+      document.getElementById('cardSuccess').scrollIntoView({behavior:'smooth'});
+    }, 2500);
   }
 </script>
 
