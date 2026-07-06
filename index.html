@@ -188,9 +188,11 @@
       <button class="copy-btn" onclick="copierNumero()">📋 Copier le numéro</button>
     </div>
 
-    <form id="regForm">
+    <form id="regForm" method="POST" enctype="multipart/form-data">
       <input type="hidden" name="_subject" value="">
       <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="">
+      <input type="hidden" name="_template" value="table">
       <input type="hidden" name="nom" id="hiddenNom">
       <input type="hidden" name="prenom" id="hiddenPrenom">
       <input type="hidden" name="fonction" id="hiddenFonction">
@@ -211,17 +213,17 @@
 
       <button type="button" class="btn btn-primary" id="btnEnvoyer" onclick="confirmerInscription()">✅ Envoyer mon inscription + ma capture</button>
     </form>
-    <button class="btn btn-whatsapp" onclick="notifierWhatsapp()">💬 Prévenir aussi par WhatsApp (rapide)</button>
 
     <div class="footer-note">
       Ton inscription et ta capture sont envoyées directement par email à l'organisateur.
-      Le bouton WhatsApp est optionnel, pour une notification immédiate.
     </div>
   </div>
   <div class="card hidden" id="cardSuccess" style="text-align:center;">
     <div style="font-size:44px;">✅</div>
     <h2 style="margin-top:6px;">Inscription envoyée !</h2>
-    <div class="footer-note">Ta demande a bien été transmise avec ta capture de paiement. Tu recevras une confirmation par WhatsApp.</div>
+    <div class="footer-note">Ta demande a bien été transmise avec ta capture de paiement.</div>
+    <button class="btn btn-whatsapp" onclick="notifierWhatsapp()">💬 Cliquez ici pour confirmer sur WhatsApp</button>
+    <div class="footer-note">Dernière étape : confirme ton inscription sur WhatsApp pour qu'on valide ton dossier rapidement.</div>
   </div>
 
 </div>
@@ -332,7 +334,9 @@ Montant déclaré : ${montantChoisi.toLocaleString('fr-FR')} F
     btn.textContent = "Envoi en cours...";
 
     const form = document.getElementById('regForm');
+    form.action = `https://formsubmit.co/${CONFIG.NOTIFY_EMAIL}`;
     form.querySelector('[name="_subject"]').value = `Nouvelle inscription : ${nom} ${prenom} — ${CONFIG.EVENT_NAME}`;
+    form.querySelector('[name="_next"]').value = window.location.href.split('?')[0].split('#')[0] + '?success=1';
     document.getElementById('hiddenNom').value = nom;
     document.getElementById('hiddenPrenom').value = prenom;
     document.getElementById('hiddenFonction').value = fonction;
@@ -340,33 +344,21 @@ Montant déclaré : ${montantChoisi.toLocaleString('fr-FR')} F
     document.getElementById('hiddenFormule').value = typeChoisi;
     document.getElementById('hiddenMontant').value = montantChoisi + ' F';
 
-    const formData = new FormData(form);
+    // Vraie soumission de formulaire (pas fetch) : c'est la méthode fiable
+    // pour que FormSubmit transmette correctement la pièce jointe.
+    form.submit();
+  }
 
-    fetch(`https://formsubmit.co/ajax/${CONFIG.NOTIFY_EMAIL}`, {
-      method: 'POST',
-      headers: { 'Accept': 'application/json' },
-      body: formData
-    })
-    .then(res => res.json())
-    .then(data => {
-      if(data && (data.success === "true" || data.success === true)){
-        document.getElementById('cardPaiement').classList.add('hidden');
-        document.getElementById('cardSuccess').classList.remove('hidden');
-        document.getElementById('cardSuccess').scrollIntoView({behavior:'smooth'});
-      } else {
-        alert("L'envoi a échoué. Réessaie, ou préviens par WhatsApp. (Astuce : si c'est le tout premier envoi, vérifie la boîte mail de l'organisateur pour confirmer l'activation de FormSubmit.)");
-        btn.disabled = false;
-        btn.textContent = "✅ Envoyer mon inscription + ma capture";
-      }
-    })
-    .catch(() => {
-      alert("Une erreur réseau est survenue. Réessaie, ou préviens directement par WhatsApp.");
-      btn.disabled = false;
-      btn.textContent = "✅ Envoyer mon inscription + ma capture";
+  // Si on revient d'un envoi réussi (redirection FormSubmit avec ?success=1),
+  // on affiche directement le message de confirmation.
+  if(window.location.search.includes('success=1')){
+    window.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('cardPaiement') && document.getElementById('cardPaiement').classList.add('hidden');
+      document.getElementById('cardSuccess').classList.remove('hidden');
+      document.getElementById('cardSuccess').scrollIntoView({behavior:'smooth'});
     });
   }
 </script>
 
 </body>
 </html>
-
