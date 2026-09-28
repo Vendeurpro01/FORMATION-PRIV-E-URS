@@ -49,8 +49,20 @@
     PLACES_TOTAL: 15,
     PLACES_RESTANTES: null,                // mettre un nombre (ex : 9) pour afficher la jauge ; null = masquée
     PIXEL_ID: "1073096111999430",          // pixel Meta « Pixel URS Academy Formation »
-    TEMOIGNAGES: [                         // { nom: "…", role: "…", texte: "…" } ; section masquée si vide
-    ]
+    // Vrais messages d'apprenants (captures WhatsApp de la boutique Chariow). Numéros et noms retirés.
+    TEMOIGNAGES: [                         // { resultat: "…", qui: "…", texte: "…" } ; section masquée si vide
+      { resultat: "350 000 F en moins d'un mois", qui: "Apprenant URS Academy",
+        texte: "Bonsoir Coach Yannick, je voulais vous montrer la maison chambre-salon de 16 tôles que j'ai construite pour ma maman. Avec votre formation, j'ai pu faire un chiffre d'affaires de 350 000 FCFA en moins d'un mois." },
+      { resultat: "12 ventes en 2 jours", qui: "Apprenant URS Academy",
+        texte: "Bonjour coach ! J'ai réussi à faire 12 ventes en 2 jours sur un produit digital dont le prix était à 2 000 F ! Merci pour votre accompagnement." },
+      { resultat: "Ses premières ventes, en partant de zéro", qui: "Apprenante débutante",
+        texte: "Quand j'ai démarré le boost mercredi, je l'ai laissé activé 24h/24. Jusque-là, j'ai pu réaliser 4 ventes, soit 8 000 F." },
+      { resultat: "15 000 F en une journée", qui: "Apprenant URS Academy",
+        texte: "L'objectif de la journée est atteint. Que Dieu bénisse nos efforts. Minimum 15 000 FCFA par jour." },
+      { resultat: "2 ventes en 30 minutes", qui: "Membre du groupe Vendeur Pro",
+        texte: "J'ai effectué deux ventes en moins de trente minutes d'intervalle ce soir. Restons focus, concentrés et persévérants." }
+    ],
+    CLIENTS: 240                           // clients déjà servis sur la boutique Chariow (242 au 28 sept.)
   };
   CONFIG.PRIX_SOLDE = CONFIG.PRIX_TOTAL - CONFIG.PRIX_RESERVATION;
 </script>
@@ -216,10 +228,13 @@
   .bonus-item p{font-size:15px;color:var(--muted)}
 
   .testis{display:grid;grid-template-columns:1fr;gap:14px;margin-top:28px}
-  .testi{background:#fff;border-radius:var(--r-md);padding:20px;border:1.5px solid var(--line)}
-  .testi p{font-size:16px}
-  .testi .who2{margin-top:12px;font-weight:800;color:var(--navy)}
-  .testi .who2 span{display:block;font-weight:500;color:var(--muted);font-size:14px}
+  .testi{background:#fff;border-radius:var(--r-md);padding:20px 20px 18px;border:1.5px solid var(--line);display:flex;flex-direction:column;gap:12px}
+  .testi .res{font-family:var(--display);font-weight:400;font-size:26px;line-height:1.15;color:var(--orange-d);text-transform:uppercase}
+  .testi blockquote{font-size:16px;color:var(--ink);background:#E7F8EE;border-radius:4px 14px 14px 14px;padding:12px 14px;position:relative}
+  .testi .who2{font-weight:700;color:var(--muted);font-size:14px;display:flex;align-items:center;gap:8px}
+  .testi .who2 svg{width:16px;height:16px;color:var(--wa)}
+  .proof{display:inline-flex;align-items:center;gap:10px;margin-top:12px;font-weight:700;color:var(--navy);background:#fff;border:1.5px solid var(--line);border-radius:999px;padding:8px 16px}
+  .proof b{font-family:var(--display);font-weight:400;font-size:24px;color:var(--orange-d)}
 
   /* ---------- Offre et inscription ---------- */
   .offer{background:var(--navy);color:#fff}
@@ -315,7 +330,9 @@
     .gallery img, .gallery figure:not(:first-child) img{aspect-ratio:auto;height:320px}
     .bonus{grid-template-columns:repeat(3,1fr)}
     .bonus-item{flex-direction:column;text-align:center;align-items:center}
-    .testis{grid-template-columns:repeat(3,1fr)}
+    .testis{grid-template-columns:repeat(6,1fr)}
+    .testi{grid-column:span 2}
+    .testi:nth-child(4){grid-column:2 / span 2}
     .offer-grid{grid-template-columns:.9fr 1.1fr;gap:36px}
     .sticky{display:none}
     .wa-float{bottom:24px}
@@ -476,7 +493,9 @@
 <!-- ================= TÉMOIGNAGES (masqué si vide) ================= -->
 <section class="alt hidden" id="temoignages">
   <div class="wrap">
-    <h2 class="reveal">Ils sont passés par URS</h2>
+    <h2 class="reveal">Ce que nos apprenants nous écrivent</h2>
+    <p class="intro reveal">Des messages reçus sur WhatsApp après nos formations. Noms et numéros retirés.</p>
+    <div class="proof reveal"><b id="nbClients"></b>personnes ont déjà acheté nos formations en ligne</div>
     <div class="testis" id="testiList"></div>
   </div>
 </section>
@@ -645,8 +664,9 @@
   /* Témoignages */
   if (CONFIG.TEMOIGNAGES.length) {
     $('temoignages').classList.remove('hidden');
+    $('nbClients').textContent = '+' + CONFIG.CLIENTS;
     $('testiList').innerHTML = CONFIG.TEMOIGNAGES.map(t =>
-      `<figure class="testi reveal"><p>« ${t.texte} »</p><figcaption class="who2">${t.nom}${t.role?`<span>${t.role}</span>`:''}</figcaption></figure>`).join('');
+      `<figure class="testi reveal"><div class="res">${t.resultat}</div><blockquote>« ${t.texte} »</blockquote><figcaption class="who2"><svg><use href="#i-wa"/></svg>${t.qui}</figcaption></figure>`).join('');
   }
 
   /* ---------- Compte à rebours ---------- */
