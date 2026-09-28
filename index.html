@@ -2,414 +2,768 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Inscription - Formation Privée URS ACADEMY</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Formation Privée URS Academy | Dimanche 4 octobre à Ouaga 2000</title>
+<meta name="description" content="Formation 100 % pratique et privée avec Yannick Kiendrebeogo : e-commerce, Shopify, Alibaba, pub Facebook, vente WhatsApp et IA. Dimanche 4 octobre 2026, Ouaga 2000. 15 places.">
+<meta name="theme-color" content="#0E2748">
 
-<!-- 👉 Aperçu quand le lien est partagé sur Facebook/WhatsApp -->
-<meta property="og:title" content="Formation Privée — Marketing Digital & E-commerce | URS ACADEMY">
-<meta property="og:description" content="Formation 100% pratique & privée : Marketing Digital, E-commerce (Shopify, Alibaba), Vente, IA. Dimanche 4 octobre 2026 à Ouaga 2000. Réserve ta place en ligne.">
+<!-- Aperçu du lien sur Facebook et WhatsApp -->
+<meta property="og:title" content="Formation Privée URS Academy : deviens autonome financièrement grâce au digital">
+<meta property="og:description" content="Formation 100 % pratique et privée : e-commerce, Shopify, Alibaba, pub Facebook, vente WhatsApp et IA. Dimanche 4 octobre 2026 à Ouaga 2000. 15 places.">
 <meta property="og:image" content="https://vendeurpro01.github.io/FORMATION-PRIV-E-URS/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:url" content="https://vendeurpro01.github.io/FORMATION-PRIV-E-URS/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
+
+<link rel="preload" as="font" type="font/woff2" href="anton-400.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="archivo-400.woff2" crossorigin>
+<link rel="preload" as="image" href="yk-hero.jpg">
 <style>
-  /* ================================================================
-     ⚙️ CONFIG — à modifier facilement par Yannick, tout est ici
-     ================================================================ */
+  /* Polices hébergées avec le site (licence SIL OFL) */
+  @font-face{font-family:'Anton';src:url(anton-400.woff2) format('woff2');font-weight:400;font-display:swap}
+  @font-face{font-family:'Archivo';src:url(archivo-400.woff2) format('woff2');font-weight:400;font-display:swap}
+  @font-face{font-family:'Archivo';src:url(archivo-600.woff2) format('woff2');font-weight:500 600;font-display:swap}
+  @font-face{font-family:'Archivo';src:url(archivo-700.woff2) format('woff2');font-weight:700;font-display:swap}
+  @font-face{font-family:'Archivo';src:url(archivo-800.woff2) format('woff2');font-weight:800 900;font-display:swap}
 </style>
+
 <script>
+  /* ================================================================
+     CONFIG : tout ce qui change d'une session à l'autre est ici
+     ================================================================ */
   const CONFIG = {
-    WAVE_NUMBER: "+226 75490747",        // 👉 remplace par TON numéro Wave si différent
-    WHATSAPP_NUMBER: "22675490747",      // 👉 numéro qui reçoit la notif rapide (optionnel)
+    WAVE_NUMBER: "+226 75490747",          // numéro Wave qui reçoit les paiements
+    WHATSAPP_CONFIRMATION: "22675490747",  // reçoit le message de confirmation après inscription
+    WHATSAPP_INFOLINE: "22667671146",      // bouton WhatsApp flottant et questions
+    INFOLINE: "75 49 07 47 / 67 67 11 46",
     NOTIFY_EMAIL: "kiendrebeogoyannick7@gmail.com",
-    EVENT_NAME: "Formation Privée — Marketing Digital & E‑commerce",
+    EVENT_NAME: "Formation Privée URS Academy",
+    EVENT_START: "2026-10-04T08:00:00Z",   // Ouagadougou = UTC+0
     EVENT_DATE: "Dimanche 4 octobre 2026",
-    EVENT_HORAIRE: "08h00 – 18h00",
-    EVENT_LIEU: "Siège URS ACADEMY, Ouaga 2000",
-    INFOLINE: "(+226) 75 49 07 47 / 67 67 11 46",
-    PRIX_INSCRIPTION: 5000,              // 👉 réservation (acompte)
-    PRIX_TOTAL: 35000                    // 👉 prix total de la formation
+    EVENT_HORAIRE: "8 h à 18 h",
+    EVENT_LIEU: "Siège URS Academy, Ouaga 2000",
+    PRIX_RESERVATION: 5000,
+    PRIX_TOTAL: 35000,
+    PLACES_TOTAL: 15,
+    PLACES_RESTANTES: null,                // mettre un nombre (ex : 9) pour afficher la jauge ; null = masquée
+    PIXEL_ID: "1073096111999430",          // pixel Meta « Pixel URS Academy Formation »
+    TEMOIGNAGES: [                         // { nom: "…", role: "…", texte: "…" } ; section masquée si vide
+    ]
   };
-  CONFIG.PRIX_SOLDE = CONFIG.PRIX_TOTAL - CONFIG.PRIX_INSCRIPTION; // calculé automatiquement
+  CONFIG.PRIX_SOLDE = CONFIG.PRIX_TOTAL - CONFIG.PRIX_RESERVATION;
 </script>
+
+<!-- Pixel Meta -->
+<script>
+  if (CONFIG.PIXEL_ID) {
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', CONFIG.PIXEL_ID);
+    fbq('track', 'PageView');
+  }
+  function track(evt, params){ try{ if(window.fbq) fbq('track', evt, params||{}); }catch(e){} }
+</script>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1073096111999430&ev=PageView&noscript=1"></noscript>
+
 <style>
   :root{
-    --orange1:#ff9a1f; --orange2:#f5750c; --orange3:#e8480f; --orange4:#d1240f;
-    --blue:#1476E0; --red:#E2340F; --black:#141414; --green:#25D366;
+    --navy:#0E2748; --navy-2:#153A6B; --blue:#1466D8; --orange:#F2601C; --orange-d:#D94E0E;
+    --yellow:#FFD23F; --paper:#FFFFFF; --mist:#EEF3FA; --ink:#13202F; --muted:#5B6B7F;
+    --line:#D9E2EE; --wave:#1DC8FF; --wave-d:#0A8FC2; --wa:#25D366;
+    --display:'Anton', 'Impact', 'Arial Narrow', sans-serif;
+    --body:'Archivo', 'Segoe UI', Roboto, Arial, sans-serif;
+    --r-lg:22px; --r-md:14px; --r-sm:10px;
   }
-  *{box-sizing:border-box; margin:0; padding:0; font-family:'Segoe UI', Poppins, Arial, sans-serif;}
-  body{background:#f4f4f4; color:#1a1a1a;}
-  .banner{
-    background: linear-gradient(135deg, var(--orange1) 0%, var(--orange2) 28%, var(--orange3) 62%, var(--orange4) 100%);
-    padding: 34px 22px 40px 22px;
-    color:#fff;
-    text-align:center;
-    position:relative;
-    overflow:hidden;
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.55;font-size:16px;overflow-x:hidden}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  button{font:inherit;cursor:pointer}
+  :focus-visible{outline:3px solid var(--yellow);outline-offset:3px;border-radius:6px}
+  .wrap{width:100%;max-width:1080px;margin:0 auto;padding:0 20px}
+  .hidden{display:none !important}
+
+  /* ---------- Barre du haut ---------- */
+  .topbar{position:absolute;top:0;left:0;right:0;z-index:5;padding:16px 0}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .logo{background:#fff;border-radius:12px 12px 12px 2px;padding:7px 12px;line-height:1.1;box-shadow:0 6px 20px rgba(0,0,0,.18)}
+  .logo b{font-weight:800;font-size:17px;letter-spacing:.3px}
+  .logo .u{color:var(--blue)} .logo .a{color:var(--orange)}
+  .logo small{display:block;font-size:10px;color:#555;font-weight:600}
+  .top-wa{color:#fff;font-weight:700;font-size:14px;text-decoration:none;display:flex;align-items:center;gap:8px;opacity:.92}
+  .top-wa svg{width:18px;height:18px}
+
+  /* ---------- Hero ---------- */
+  .hero{position:relative;background:var(--navy);color:#fff;overflow:hidden;padding:96px 0 48px}
+  .hero::before{content:"";position:absolute;right:-30%;top:-20%;width:90vw;height:90vw;max-width:900px;max-height:900px;border-radius:50%;
+    background:radial-gradient(circle at 35% 35%, #F2601C 0%, #D94E0E 38%, rgba(217,78,14,0) 70%);opacity:.55}
+  .hero::after{content:"";position:absolute;left:-25%;bottom:-35%;width:70vw;height:70vw;max-width:700px;max-height:700px;border-radius:50%;
+    background:radial-gradient(circle, rgba(20,102,216,.9) 0%, rgba(20,102,216,0) 65%);opacity:.6}
+  .hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1fr;gap:28px;align-items:center}
+  .hero-photo{position:relative;justify-self:center;width:min(78vw,380px)}
+  .hero-photo .frame{border-radius:200px 200px var(--r-lg) var(--r-lg);overflow:hidden;aspect-ratio:4/5;
+    box-shadow:0 30px 60px rgba(0,0,0,.35);border:4px solid rgba(255,255,255,.12)}
+  .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 15%}
+  .stamp{position:absolute;right:-10px;top:18%;background:var(--orange);color:#fff;border-radius:10px;padding:8px 12px 10px;text-align:center;
+    box-shadow:0 12px 26px rgba(0,0,0,.35);transform:rotate(6deg);border:3px solid #fff}
+  .stamp .d{font-family:var(--display);font-size:44px;line-height:1}
+  .stamp .m{font-size:12px;font-weight:700}
+  .stamp .j{font-size:12px;font-weight:600;opacity:.9}
+  .name-tag{position:absolute;left:-8px;bottom:22px;background:#fff;color:var(--ink);border-radius:12px;padding:8px 12px;font-size:13px;line-height:1.25;
+    box-shadow:0 12px 26px rgba(0,0,0,.28)}
+  .name-tag b{display:block;font-size:15px}
+
+  .hero-text{min-width:0}
+  h1.headline{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(44px,13vw,86px);line-height:1;letter-spacing:.5px}
+  h1.headline .ln{display:block;overflow:hidden;padding-top:.16em;margin-top:-.16em}
+  h1.headline .ln span{display:inline-block;transform:translateY(105%);animation:rise .8s cubic-bezier(.2,.8,.2,1) forwards}
+  h1.headline .ln:nth-child(2) span{animation-delay:.12s}
+  h1.headline .ln:nth-child(3) span{animation-delay:.24s;color:var(--yellow)}
+  @keyframes rise{to{transform:translateY(0)}}
+  .hero-lead{font-size:17px;color:#D8E3F2;margin-top:18px;max-width:34em;opacity:0;animation:fade .7s .5s forwards}
+  .facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;opacity:0;animation:fade .7s .65s forwards}
+  .fact{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:7px 12px;font-size:14px;font-weight:600;display:flex;align-items:center;gap:7px}
+  .fact svg{width:16px;height:16px;flex:none;opacity:.9}
+  @keyframes fade{to{opacity:1}}
+  .hero-photo{opacity:0;transform:scale(.94);animation:pop .9s .15s cubic-bezier(.2,.8,.2,1) forwards}
+  .stamp{animation:stampin .6s .8s cubic-bezier(.3,1.6,.5,1) both}
+  @keyframes pop{to{opacity:1;transform:none}}
+  @keyframes stampin{from{opacity:0;transform:rotate(-25deg) scale(.4)}to{opacity:1;transform:rotate(6deg) scale(1)}}
+
+  .countdown{margin-top:24px;opacity:0;animation:fade .7s .8s forwards}
+  .countdown .lbl{font-size:14px;color:#B9C9DE;font-weight:600;margin-bottom:8px}
+  .cd{display:flex;gap:8px}
+  .cd div{background:#fff;color:var(--navy);border-radius:var(--r-sm);min-width:66px;padding:8px 6px 6px;text-align:center}
+  .cd b{display:block;font-family:var(--display);font-size:32px;line-height:1;font-weight:400}
+  .cd small{font-size:11px;font-weight:700;color:var(--muted)}
+  .cd-done{font-weight:700;color:var(--yellow)}
+
+  .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px;opacity:0;animation:fade .7s .95s forwards}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:none;border-radius:var(--r-md);font-weight:800;font-size:17px;
+    padding:16px 22px;text-decoration:none;transition:transform .15s, box-shadow .15s, background .15s}
+  .btn:active{transform:scale(.98)}
+  .btn-main{background:var(--orange);color:#fff;box-shadow:0 10px 24px rgba(242,96,28,.45);position:relative;overflow:hidden}
+  .btn-main:hover{background:var(--orange-d)}
+  .btn-main::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;
+    background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);animation:sheen 3.2s 1.6s infinite}
+  @keyframes sheen{0%{left:-60%}35%,100%{left:130%}}
+  .btn-ghost{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.35)}
+  .btn-ghost:hover{border-color:#fff}
+  .btn-wave{background:var(--wave);color:#04293A}
+  .btn-wa{background:var(--wa);color:#fff}
+  .btn svg{width:20px;height:20px}
+  .w100{width:100%}
+
+  /* ---------- Bandeau défilant ---------- */
+  .band{background:var(--yellow);color:var(--navy);overflow:hidden;white-space:nowrap;border-block:3px solid var(--navy)}
+  .band-track{display:inline-flex;animation:marquee 26s linear infinite;padding:12px 0}
+  .band-track span{font-family:var(--display);font-size:22px;text-transform:uppercase;padding:0 18px;display:inline-flex;align-items:center;gap:18px}
+  .band-track span::after{content:"";width:9px;height:9px;border-radius:50%;background:var(--orange)}
+  @keyframes marquee{to{transform:translateX(-50%)}}
+
+  /* ---------- Sections ---------- */
+  section{padding:64px 0}
+  .alt{background:var(--mist)}
+  h2{font-family:var(--body);font-weight:800;font-size:clamp(28px,6.4vw,40px);line-height:1.1;letter-spacing:-.5px;color:var(--navy);max-width:20em}
+  .intro{color:var(--muted);font-size:17px;margin-top:10px;max-width:36em}
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease, transform .7s cubic-bezier(.2,.8,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  .skills{display:grid;grid-template-columns:1fr;gap:14px;margin-top:28px}
+  .skill{display:grid;grid-template-columns:48px 1fr;gap:14px;align-items:start;padding:18px;border:1.5px solid var(--line);border-radius:var(--r-md);background:#fff}
+  .skill .ic{width:48px;height:48px;border-radius:12px;display:grid;place-items:center;background:var(--navy);color:var(--yellow)}
+  .skill .ic svg{width:24px;height:24px}
+  .skill h3{font-size:18px;font-weight:800;color:var(--navy);line-height:1.25}
+  .skill p{color:var(--muted);font-size:15px;margin-top:4px}
+  .skill.goal{background:var(--navy);border-color:var(--navy)}
+  .skill.goal h3{color:#fff} .skill.goal p{color:#C9D6E8}
+  .skill.goal .ic{background:var(--orange);color:#fff}
+
+  .who{display:grid;grid-template-columns:1fr;gap:14px;margin-top:28px}
+  .who-card{padding:22px;border-radius:var(--r-lg);background:#fff;border-top:6px solid var(--blue)}
+  .who-card:nth-child(2){border-top-color:var(--orange)}
+  .who-card:nth-child(3){border-top-color:var(--yellow)}
+  .who-card h3{font-size:19px;font-weight:800;color:var(--navy)}
+  .who-card p{color:var(--muted);margin-top:6px}
+  .no-exp{margin-top:18px;display:inline-flex;align-items:center;gap:10px;background:#E6F7EE;color:#0D6B3A;font-weight:700;border-radius:999px;padding:9px 16px}
+  .no-exp svg{width:18px;height:18px}
+
+  .coach{display:grid;grid-template-columns:1fr;gap:26px;align-items:center}
+  .coach-photo{border-radius:var(--r-lg);overflow:hidden;aspect-ratio:4/5;max-width:420px}
+  .coach-photo img{width:100%;height:100%;object-fit:cover}
+  .coach p{margin-top:14px;font-size:17px}
+  .coach ul{list-style:none;margin-top:18px;display:grid;gap:10px}
+  .coach li{display:flex;gap:10px;align-items:flex-start;font-weight:600}
+  .coach li svg{width:22px;height:22px;color:var(--orange);flex:none;margin-top:1px}
+
+  .gallery{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:26px}
+  .gallery figure{border-radius:var(--r-md);overflow:hidden;background:#dfe6ef}
+  .gallery figure:first-child{grid-column:1 / -1}
+  .gallery img{width:100%;height:100%;object-fit:cover;aspect-ratio:3/2}
+  .gallery figure:not(:first-child) img{aspect-ratio:4/5}
+
+  .bonus{display:grid;grid-template-columns:1fr;gap:14px;margin-top:28px}
+  .bonus-item{display:flex;gap:16px;align-items:center;padding:18px;border-radius:var(--r-md);background:#fff;border:1.5px dashed var(--orange)}
+  .bonus-item .gift{width:52px;height:52px;flex:none;border-radius:50%;background:#FFF1E8;display:grid;place-items:center;color:var(--orange)}
+  .bonus-item .gift svg{width:26px;height:26px}
+  .bonus-item h3{font-size:17px;font-weight:800;color:var(--navy)}
+  .bonus-item p{font-size:15px;color:var(--muted)}
+
+  .testis{display:grid;grid-template-columns:1fr;gap:14px;margin-top:28px}
+  .testi{background:#fff;border-radius:var(--r-md);padding:20px;border:1.5px solid var(--line)}
+  .testi p{font-size:16px}
+  .testi .who2{margin-top:12px;font-weight:800;color:var(--navy)}
+  .testi .who2 span{display:block;font-weight:500;color:var(--muted);font-size:14px}
+
+  /* ---------- Offre et inscription ---------- */
+  .offer{background:var(--navy);color:#fff}
+  .offer h2{color:#fff}
+  .offer .intro{color:#C9D6E8}
+  .seats{margin-top:18px;max-width:460px}
+  .seats .row{display:flex;justify-content:space-between;font-weight:700;font-size:14px;margin-bottom:6px}
+  .seats .bar{height:10px;background:rgba(255,255,255,.15);border-radius:99px;overflow:hidden}
+  .seats .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--yellow),var(--orange));border-radius:99px;transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
+  .offer-grid{display:grid;grid-template-columns:1fr;gap:22px;margin-top:28px;align-items:start}
+  .plans{display:grid;gap:12px}
+  .plan{position:relative;display:block;text-align:left;width:100%;background:rgba(255,255,255,.06);border:2px solid rgba(255,255,255,.2);color:#fff;border-radius:var(--r-lg);padding:20px;transition:border-color .2s, background .2s, transform .2s}
+  .plan[aria-checked="true"]{background:#fff;color:var(--ink);border-color:var(--orange);transform:translateY(-2px);box-shadow:0 18px 40px rgba(0,0,0,.3)}
+  .plan .top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+  .plan .name{font-weight:800;font-size:17px}
+  .plan .price{font-family:var(--display);font-size:38px;font-weight:400;line-height:1}
+  .plan .price small{font-family:var(--body);font-size:15px;font-weight:700}
+  .plan ul{list-style:none;margin-top:12px;display:grid;gap:6px;font-size:15px}
+  .plan li{display:flex;gap:8px;align-items:flex-start}
+  .plan li svg{width:18px;height:18px;flex:none;margin-top:2px;color:var(--orange)}
+  .plan .reco{position:absolute;top:-12px;left:18px;background:var(--yellow);color:var(--navy);font-size:13px;font-weight:800;border-radius:999px;padding:4px 12px}
+  .plan .radio{width:22px;height:22px;border-radius:50%;border:2px solid currentColor;display:inline-grid;place-items:center;flex:none;opacity:.8}
+  .plan[aria-checked="true"] .radio{border-color:var(--orange);opacity:1}
+  .plan[aria-checked="true"] .radio::after{content:"";width:12px;height:12px;border-radius:50%;background:var(--orange)}
+  .plan .head{display:flex;align-items:center;gap:10px}
+
+  .card{background:#fff;color:var(--ink);border-radius:var(--r-lg);padding:22px;box-shadow:0 20px 50px rgba(0,0,0,.25)}
+  .steps{display:flex;gap:6px;margin-bottom:18px}
+  .steps span{flex:1;font-size:12px;font-weight:700;color:var(--muted);text-align:center;padding-top:8px;border-top:4px solid var(--line)}
+  .steps span.on{color:var(--navy);border-top-color:var(--orange)}
+  .card h3{font-size:20px;font-weight:800;color:var(--navy)}
+  label{display:block;font-size:14px;font-weight:700;color:#2B3A4D;margin:14px 0 6px}
+  input[type=text],input[type=tel]{width:100%;padding:14px;border-radius:12px;border:1.5px solid var(--line);font-size:16px;font-family:inherit;background:#FAFCFF}
+  input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(20,102,216,.18)}
+  .err{color:#C62828;font-size:14px;font-weight:600;margin-top:10px}
+  .due{display:flex;justify-content:space-between;align-items:baseline;background:var(--mist);border-radius:12px;padding:14px 16px;margin-top:12px}
+  .due b{font-family:var(--display);font-size:34px;font-weight:400;color:var(--orange-d)}
+  .wave-box{margin-top:14px;border:2px dashed var(--wave);background:#EFFBFF;border-radius:14px;padding:16px;text-align:center}
+  .wave-box .num{font-family:var(--display);font-size:30px;color:#035A7A;margin:6px 0 10px;letter-spacing:1px}
+  .copy{background:var(--wave-d);color:#fff;border:none;border-radius:10px;padding:9px 14px;font-weight:700;font-size:14px}
+  .upsell{margin-top:14px;background:#FFF6E0;border:1.5px solid var(--yellow);border-radius:14px;padding:14px 16px;font-size:15px}
+  .upsell button{margin-top:10px;background:var(--navy);color:#fff;border:none;border-radius:10px;padding:10px 14px;font-weight:700}
+  .upload{display:block;margin-top:8px;border:2.5px dashed #9FB3CC;border-radius:14px;background:#F6F9FD;text-align:center;padding:26px 14px;cursor:pointer;transition:background .15s}
+  .upload:hover{background:#EDF3FA}
+  .upload .t1{font-weight:800;color:var(--navy);margin-top:6px}
+  .upload .t2{font-size:13px;color:var(--muted);margin-top:2px}
+  .upload svg{width:34px;height:34px;color:var(--blue)}
+  .upload.has{padding:10px;border-style:solid;border-color:var(--wa)}
+  #capture{position:absolute;width:1px;height:1px;opacity:0}
+  .note{font-size:13px;color:var(--muted);text-align:center;margin-top:12px}
+  .success{text-align:center}
+  .success .check{width:74px;height:74px;border-radius:50%;background:#E6F7EE;color:#0D6B3A;display:grid;place-items:center;margin:0 auto 10px;animation:pop2 .6s cubic-bezier(.3,1.6,.5,1)}
+  .success .check svg{width:40px;height:40px}
+  @keyframes pop2{from{transform:scale(.3);opacity:0}to{transform:none;opacity:1}}
+
+  /* ---------- FAQ ---------- */
+  .faq{margin-top:26px;display:grid;gap:10px;max-width:760px}
+  details{background:#fff;border:1.5px solid var(--line);border-radius:var(--r-md);padding:0 18px}
+  summary{list-style:none;cursor:pointer;font-weight:800;color:var(--navy);padding:18px 0;display:flex;justify-content:space-between;gap:12px;align-items:center}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"";width:12px;height:12px;border-right:3px solid var(--orange);border-bottom:3px solid var(--orange);transform:rotate(45deg);transition:transform .25s;flex:none;margin-top:-6px}
+  details[open] summary::after{transform:rotate(-135deg);margin-top:6px}
+  details p{padding:0 0 18px;color:var(--muted)}
+
+  /* ---------- Pied de page, boutons flottants ---------- */
+  footer{background:var(--navy);color:#C9D6E8;padding:36px 0 110px;font-size:15px}
+  footer b{color:#fff}
+  .wa-float{position:fixed;right:16px;bottom:88px;z-index:30;width:56px;height:56px;border-radius:50%;background:var(--wa);color:#fff;display:grid;place-items:center;
+    box-shadow:0 10px 24px rgba(0,0,0,.25);text-decoration:none}
+  .wa-float svg{width:30px;height:30px}
+  .wa-float::before{content:"";position:absolute;inset:0;border-radius:50%;border:3px solid var(--wa);animation:ring 2.4s infinite}
+  @keyframes ring{0%{transform:scale(1);opacity:.8}80%,100%{transform:scale(1.55);opacity:0}}
+  .sticky{position:fixed;left:0;right:0;bottom:0;z-index:25;background:#fff;border-top:1px solid var(--line);box-shadow:0 -8px 24px rgba(14,39,72,.12);
+    padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:flex;align-items:center;justify-content:space-between;gap:12px;
+    transform:translateY(110%);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+  .sticky.show{transform:none}
+  .sticky .p{line-height:1.15}
+  .sticky .p b{font-family:var(--display);font-size:24px;font-weight:400;color:var(--navy)}
+  .sticky .p small{display:block;font-size:12px;color:var(--muted);font-weight:600}
+  .sticky .btn{padding:13px 18px;font-size:16px}
+
+  /* ---------- Écrans larges ---------- */
+  @media (min-width:860px){
+    .hero{padding:120px 0 80px}
+    .hero .wrap{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:56px}
+    .hero-photo{grid-column:2;grid-row:1;width:100%;max-width:420px}
+    .hero-text{grid-column:1;grid-row:1}
+    .skills{grid-template-columns:1fr 1fr}
+    .who{grid-template-columns:repeat(3,1fr)}
+    .coach{grid-template-columns:.8fr 1.2fr;gap:48px}
+    .gallery{grid-template-columns:2fr 1fr 1fr}
+    .gallery figure:first-child{grid-column:auto}
+    .gallery img, .gallery figure:not(:first-child) img{aspect-ratio:auto;height:320px}
+    .bonus{grid-template-columns:repeat(3,1fr)}
+    .bonus-item{flex-direction:column;text-align:center;align-items:center}
+    .testis{grid-template-columns:repeat(3,1fr)}
+    .offer-grid{grid-template-columns:.9fr 1.1fr;gap:36px}
+    .sticky{display:none}
+    .wa-float{bottom:24px}
+    footer{padding-bottom:40px}
   }
-  .banner:before{
-    content:"";
-    position:absolute; inset:0;
-    background-image:
-      repeating-linear-gradient(45deg, rgba(255,255,255,0.05) 0 2px, transparent 2px 30px),
-      repeating-linear-gradient(-45deg, rgba(0,0,0,0.06) 0 2px, transparent 2px 30px);
-    mix-blend-mode: overlay;
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{animation:none !important;transition:none !important}
+    h1.headline .ln span{transform:none}
+    .hero-lead,.facts,.countdown,.cta-row,.hero-photo{opacity:1;transform:none}
+    .reveal{opacity:1;transform:none}
+    .band-track{animation:none}
   }
-  .logo-bubble{
-    position:relative; z-index:1;
-    background:#fff; display:inline-block; border-radius:20px 20px 20px 0;
-    padding:14px 26px; margin-bottom:18px; box-shadow:0 6px 18px rgba(0,0,0,0.18);
-  }
-  .logo-bubble .brand{ font-weight:800; font-size:26px; letter-spacing:1px;}
-  .logo-bubble .brand .urs{color:var(--blue);}
-  .logo-bubble .brand .academy{color:var(--orange3);}
-  .logo-bubble .slogan{ font-size:12px; color:#555; font-weight:600; }
-  .banner h1{ position:relative; z-index:1; font-size:26px; font-weight:800; line-height:1.3; text-shadow:0 3px 8px rgba(0,0,0,.25); }
-  .banner .sub{ position:relative; z-index:1; font-size:15px; font-weight:600; margin-top:8px; opacity:.96; }
-  .badge{
-    position:relative; z-index:1; display:inline-block; margin-top:14px;
-    background:rgba(255,255,255,0.18); border:1.5px solid rgba(255,255,255,0.55);
-    border-radius:999px; padding:7px 16px; font-size:13px; font-weight:800; letter-spacing:.5px;
-  }
-  .infos-pratiques{
-    position:relative; z-index:1;
-    margin-top:20px; background:rgba(0,0,0,0.18); border-radius:12px;
-    padding:14px 16px; font-size:14px; font-weight:600; text-align:left; display:inline-block;
-  }
-  .infos-pratiques div{margin-bottom:4px;}
-
-  .container{ max-width:520px; margin:0 auto; padding:22px 18px 60px 18px; }
-
-  .card{ background:#fff; border-radius:16px; padding:20px; margin-bottom:18px; box-shadow:0 4px 16px rgba(0,0,0,0.06); }
-  .card h2{ font-size:18px; font-weight:800; color:var(--orange3); margin-bottom:12px; }
-  .checklist div{ font-size:15px; font-weight:600; margin-bottom:8px; }
-  .checklist .sub{ font-size:13px; color:#666; margin-left:30px; font-weight:500; }
-  .bonus{ font-size:13px; color:#555; margin-top:10px; line-height:1.6; }
-
-  .price-box{ display:flex; gap:10px; margin-top:6px; }
-  .price-tag{ flex:1; border:2px solid #eee; border-radius:12px; padding:14px 10px; text-align:center; cursor:pointer; transition:.15s; }
-  .price-tag.selected{ border-color:var(--red); background:#fff5f2; }
-  .price-tag .amount{ font-size:22px; font-weight:800; color:var(--black); }
-  .price-tag .label{ font-size:12px; font-weight:700; color:var(--red); margin-top:4px; }
-  .price-tag .detail{ font-size:11px; color:#777; margin-top:4px; }
-  .offre{ font-size:12px; font-weight:800; color:var(--orange3); text-transform:uppercase; letter-spacing:.5px; margin-bottom:6px; }
-  .contact{ text-align:center; font-size:13px; color:#555; margin-top:6px; line-height:1.7; }
-  .contact a{ color:var(--black); font-weight:800; text-decoration:none; }
-
-  label{ display:block; font-size:13px; font-weight:700; color:#333; margin:14px 0 6px; }
-  input[type=text], input[type=tel]{
-    width:100%; padding:13px 14px; border-radius:10px; border:1.5px solid #ddd; font-size:15px;
-  }
-  input:focus{ outline:none; border-color:var(--blue); }
-
-  .btn{
-    display:block; width:100%; text-align:center; padding:16px; border-radius:12px;
-    font-weight:800; font-size:16px; border:none; cursor:pointer; margin-top:20px;
-  }
-  .btn-primary{ background:var(--blue); color:#fff; }
-  .btn-wave{ background:#00A3E0; color:#fff; }
-  .btn-whatsapp{ background:var(--green); color:#fff; }
-  .btn:disabled{ opacity:.5; }
-
-  .hidden{ display:none; }
-
-  .wave-instructions{ background:#eef8fd; border:1.5px dashed #00A3E0; border-radius:12px; padding:16px; text-align:center; margin-top:10px; }
-  .wave-instructions .num{ font-size:24px; font-weight:800; color:#00699a; margin:8px 0; letter-spacing:1px; }
-  .copy-btn{ background:#00A3E0; color:#fff; border:none; padding:8px 16px; border-radius:8px; font-weight:700; font-size:13px; cursor:pointer; }
-  .amount-due{ font-size:34px; font-weight:800; color:var(--red); text-align:center; margin:10px 0; }
-
-  .footer-note{ text-align:center; font-size:12px; color:#888; margin-top:20px; line-height:1.6; }
-
-  .upload-zone{
-    display:block; border:3px dashed #00A3E0; border-radius:14px;
-    background:#f4fbff; text-align:center; padding:34px 16px; cursor:pointer;
-    margin-top:8px; transition:.15s;
-  }
-  .upload-zone:hover{ background:#e9f7fd; }
-  .upload-zone .icon{ font-size:48px; }
-  .upload-zone .txt1{ font-size:16px; font-weight:800; color:#00699a; margin-top:10px; }
-  .upload-zone .txt2{ font-size:12px; color:#777; margin-top:4px; }
-  .upload-zone.has-image{ padding:14px; border-style:solid; }
-  #capture{ display:none; }
 </style>
 </head>
 <body>
 
-<div class="banner">
-  <div class="logo-bubble">
-    <div class="brand"><span class="urs">URS</span> <span class="academy">ACADEMY</span></div>
-    <div class="slogan">L'art d'innover et de bien faire</div>
+<!-- Icônes réutilisées -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"/><path d="M16 4.8a3.5 3.5 0 010 6.4M18 14.8c1.8.7 3 2.5 3.5 5.2"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 1.9 2.9 4.6 4.1 1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2 0-.1-.2-.2-.5-.3z"/></symbol>
+  <symbol id="i-gift" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="8" width="18" height="5" rx="1"/><path d="M5 13v8h14v-8M12 8v13M12 8S10.5 3 8 3.5 7 8 12 8zm0 0s1.5-5 4-4.5S17 8 12 8z"/></symbol>
+  <symbol id="i-upload" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v3a2 2 0 002 2h12a2 2 0 002-2v-3"/></symbol>
+</svg>
+
+<header class="topbar">
+  <div class="wrap">
+    <div class="logo" aria-label="URS Academy"><b><span class="u">URS</span> <span class="a">ACADEMY</span></b><small>L'art d'innover et de bien faire</small></div>
+    <a class="top-wa" id="topWa" href="#" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Une question ?</a>
   </div>
-  <h1 id="eventName"></h1>
-  <div class="sub">Deviens autonome financièrement grâce au Digital</div>
-  <div class="badge">FORMATION 100% PRATIQUE &amp; PRIVÉE</div><br>
-  <div class="infos-pratiques" id="infosPratiques"></div>
-</div>
+</header>
 
-<div class="container">
-
-  <div class="card">
-    <h2>🎯 Objectifs de la formation</h2>
-    <div class="checklist">
-      <div>✅ Comprendre et maîtriser les outils du digital</div>
-      <div>✅ Acquérir des compétences pour devenir financièrement autonome</div>
-      <div>✅ Mettre en place un système capable de générer jusqu'à 1 000 000 FCFA par mois</div>
-    </div>
-  </div>
-
-  <div class="card">
-    <h2>📋 Au programme</h2>
-    <div class="checklist">
-      <div>✅ Intelligence Artificielle (IA)</div>
-      <div>✅ Marketing Digital</div>
-      <div>✅ Vente &amp; E-commerce</div>
-      <div class="sub">— Shopify · Alibaba</div>
-      <div>✅ Croissance</div>
-    </div>
-    <div class="bonus">
-      🎁 1 mois d'accès à la Communauté des Millionnaires EDL<br>
-      🎁 1 mois d'accès au Siège URS ACADEMY à Ouaga 2000<br>
-      🎁 3 mois d'accompagnement privé
-    </div>
-  </div>
-
-  <div class="card">
-    <h2>💳 Formulaire d'inscription</h2>
-
-    <label for="nom">Nom</label>
-    <input type="text" id="nom" placeholder="Ton nom">
-
-    <label for="prenom">Prénom</label>
-    <input type="text" id="prenom" placeholder="Ton prénom">
-
-    <label for="fonction">Fonction / Profession</label>
-    <input type="text" id="fonction" placeholder="Ex : Étudiant, Commerçant, Entrepreneur...">
-
-    <label for="telephone">Téléphone (WhatsApp)</label>
-    <input type="tel" id="telephone" placeholder="Ex : 70 00 00 00">
-
-    <label>Choisis ton mode de paiement</label>
-    <div class="offre">🔥 Offre spéciale : <span id="offreTotal"></span></div>
-    <div class="price-box">
-      <div class="price-tag selected" id="tagInscription" onclick="choisirMontant('inscription')">
-        <div class="amount" id="montantInscription"></div>
-        <div class="label">Réservation</div>
-        <div class="detail" id="detailSolde"></div>
+<!-- ================= HERO ================= -->
+<section class="hero" id="haut">
+  <div class="wrap">
+    <div class="hero-text">
+      <h1 class="headline">
+        <span class="ln"><span>Deviens autonome</span></span>
+        <span class="ln"><span>financièrement</span></span>
+        <span class="ln"><span>grâce au digital</span></span>
+      </h1>
+      <p class="hero-lead">Une journée de formation pratique et privée avec Yannick Kiendrebeogo : vendre en ligne, faire de la pub Facebook qui rapporte et faire travailler l'IA pour toi. Même si tu pars de zéro.</p>
+      <div class="facts">
+        <span class="fact"><svg><use href="#i-cal"/></svg><span id="fDate"></span></span>
+        <span class="fact"><svg><use href="#i-clock"/></svg><span id="fHeure"></span></span>
+        <span class="fact"><svg><use href="#i-pin"/></svg><span id="fLieu"></span></span>
+        <span class="fact"><svg><use href="#i-users"/></svg><span id="fPlaces"></span></span>
       </div>
-      <div class="price-tag" id="tagTotal" onclick="choisirMontant('total')">
-        <div class="amount" id="montantTotal"></div>
-        <div class="label">Paiement total</div>
-        <div class="detail">Plus rien à payer</div>
-      </div>
-    </div>
-
-    <button class="btn btn-primary" onclick="validerFormulaire()">Continuer vers le paiement</button>
-  </div>
-
-  <div class="card hidden" id="cardPaiement">
-    <h2>📲 Paiement via Wave</h2>
-    <div>Montant à payer :</div>
-    <div class="amount-due" id="montantAPayer"></div>
-    <div class="wave-instructions">
-      Envoie ce montant via l'application <b>Wave</b> au numéro :
-      <div class="num" id="waveNum"></div>
-      <button class="copy-btn" onclick="copierNumero()">📋 Copier le numéro</button>
-    </div>
-
-    <form id="regForm" method="POST" enctype="multipart/form-data">
-      <input type="hidden" name="_subject" value="">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="nom" id="hiddenNom">
-      <input type="hidden" name="prenom" id="hiddenPrenom">
-      <input type="hidden" name="fonction" id="hiddenFonction">
-      <input type="hidden" name="telephone" id="hiddenTelephone">
-      <input type="hidden" name="formule" id="hiddenFormule">
-      <input type="hidden" name="montant" id="hiddenMontant">
-
-      <label for="capture">📎 Preuve de paiement (obligatoire)</label>
-      <label class="upload-zone" id="uploadZone" for="capture">
-        <div id="uploadDefault">
-          <div class="icon">🖼️⬆️</div>
-          <div class="txt1">Cliquez ici pour télécharger une image</div>
-          <div class="txt2">La capture d'écran de ton paiement Wave = ta preuve de paiement</div>
+      <div class="countdown" id="countdown" aria-live="polite">
+        <div class="lbl">La formation commence dans</div>
+        <div class="cd">
+          <div><b id="cdJ">0</b><small>jours</small></div>
+          <div><b id="cdH">00</b><small>heures</small></div>
+          <div><b id="cdM">00</b><small>minutes</small></div>
+          <div><b id="cdS">00</b><small>secondes</small></div>
         </div>
-        <img id="previewImg" style="display:none;max-width:100%;border-radius:10px;">
-      </label>
-      <input type="file" id="capture" name="capture" accept="image/*" onchange="previewCapture()">
-
-      <button type="button" class="btn btn-primary" id="btnEnvoyer" onclick="confirmerInscription()">✅ Envoyer mon inscription + ma capture</button>
-    </form>
-
-    <div class="footer-note">
-      Ton inscription et ta capture sont envoyées directement par email à l'organisateur.
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-main" href="#inscription" data-track="hero">Je réserve ma place</a>
+        <a class="btn btn-ghost" id="heroWa" href="#" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Poser une question</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <div class="frame"><img src="yk-hero.jpg" alt="Yannick Kiendrebeogo, formateur URS Academy" width="900" height="1125"></div>
+      <div class="stamp" aria-hidden="true"><div class="j">Dimanche</div><div class="d">04</div><div class="m">oct. 2026</div></div>
+      <div class="name-tag"><b>Yannick Kiendrebeogo</b>Directeur général d'URS Group</div>
     </div>
   </div>
-  <div class="card hidden" id="cardSuccess" style="text-align:center;">
-    <div style="font-size:44px;">✅</div>
-    <h2 style="margin-top:6px;">Inscription envoyée !</h2>
-    <div class="footer-note">Ta demande a bien été transmise avec ta capture de paiement.</div>
-    <button class="btn btn-whatsapp" onclick="notifierWhatsapp()">💬 Cliquez ici pour confirmer sur WhatsApp</button>
-    <div class="footer-note">Dernière étape : confirme ton inscription sur WhatsApp pour qu'on valide ton dossier rapidement.</div>
-  </div>
+</section>
 
-  <div class="contact">
-    Infoline / plus d'informations<br>
-    <a href="https://wa.me/22675490747" target="_blank" id="infoline"></a>
+<div class="band" aria-hidden="true">
+  <div class="band-track">
+    <span>Intelligence artificielle</span><span>Shopify</span><span>Alibaba</span><span>Pub Facebook</span><span>Vente WhatsApp</span><span>Marketing digital</span><span>E-commerce</span>
+    <span>Intelligence artificielle</span><span>Shopify</span><span>Alibaba</span><span>Pub Facebook</span><span>Vente WhatsApp</span><span>Marketing digital</span><span>E-commerce</span>
   </div>
-
 </div>
 
+<!-- ================= CE QUE TU SAURAS FAIRE ================= -->
+<section>
+  <div class="wrap">
+    <h2 class="reveal">Ce que tu sauras faire dimanche soir</h2>
+    <p class="intro reveal">Pas de théorie pour remplir la journée : tu repars avec des gestes que tu peux refaire dès lundi, sur ton téléphone.</p>
+    <div class="skills">
+      <div class="skill reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.5-4.5"/></svg></div>
+        <div><h3>Trouver un produit qui se vend</h3><p>Repérer sur Alibaba un produit demandé ici, le commander et calculer ta marge avant d'acheter.</p></div></div>
+      <div class="skill reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16l-1.5 12a2 2 0 01-2 1.8h-9a2 2 0 01-2-1.8L4 7z"/><path d="M9 7V5a3 3 0 016 0v2"/></svg></div>
+        <div><h3>Monter ta boutique Shopify</h3><p>Une boutique propre, avec tes produits, prête à recevoir des commandes.</p></div></div>
+      <div class="skill reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11v2a1 1 0 001 1h2l5 4V6L6 10H4a1 1 0 00-1 1z"/><path d="M15 9a4 4 0 010 6M18 6a8 8 0 010 12"/></svg></div>
+        <div><h3>Lancer une pub Facebook qui vend</h3><p>Cibler les bonnes personnes avec un petit budget, puis lire les résultats pour savoir quoi garder.</p></div></div>
+      <div class="skill reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="7" width="14" height="12" rx="3"/><path d="M12 3v4M9 12h.01M15 12h.01M9 16h6"/></svg></div>
+        <div><h3>Faire travailler l'IA pour toi</h3><p>Textes de vente, visuels et idées de contenu en quelques minutes au lieu de quelques heures.</p></div></div>
+      <div class="skill reveal"><div class="ic"><svg><use href="#i-wa"/></svg></div>
+        <div><h3>Vendre et encaisser sur WhatsApp</h3><p>Répondre, rassurer et transformer un simple message en client qui paie.</p></div></div>
+      <div class="skill goal reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19l5-6 4 3 7-9"/><path d="M15 7h5v5"/></svg></div>
+        <div><h3>Mettre en place un système qui tourne</h3><p>Le cadre complet pour viser jusqu'à 1 000 000 F par mois avec ton activité en ligne.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= POUR QUI ================= -->
+<section class="alt">
+  <div class="wrap">
+    <h2 class="reveal">Cette formation est faite pour toi si…</h2>
+    <div class="who">
+      <div class="who-card reveal"><h3>Tu débutes</h3><p>Tu n'as jamais vendu en ligne. On part de zéro, pas à pas, sur ton propre téléphone.</p></div>
+      <div class="who-card reveal"><h3>Tu vends déjà</h3><p>Tu vends sur WhatsApp ou Facebook, mais les commandes ne suivent pas. On corrige ta méthode.</p></div>
+      <div class="who-card reveal"><h3>Tu veux un revenu en plus</h3><p>Tu travailles ou tu étudies, et tu veux une activité qui te rapporte à côté.</p></div>
+    </div>
+    <div class="no-exp reveal"><svg><use href="#i-check"/></svg>Accessible même sans expérience</div>
+  </div>
+</section>
+
+<!-- ================= FORMATEUR ================= -->
+<section>
+  <div class="wrap coach">
+    <div class="coach-photo reveal"><img src="yk-formateur.jpg" alt="Yannick Kiendrebeogo, formateur URS Academy" loading="lazy" width="900" height="1125"></div>
+    <div class="reveal">
+      <h2>Ton formateur : Yannick Kiendrebeogo</h2>
+      <p>Directeur général d'URS Group à Ouaga 2000 : URS Store, URS Tech, U-Deco et URS Academy. Il vend en ligne tous les jours, au Burkina, au Mali et au Bénin.</p>
+      <p>Dimanche, il ne te raconte pas ce qu'il a lu. Il te montre ce qu'il applique dans ses propres entreprises.</p>
+      <ul>
+        <li><svg><use href="#i-check"/></svg>Dirige une équipe de plus de 30 vendeurs</li>
+        <li><svg><use href="#i-check"/></svg>Gère chaque jour ses propres campagnes Facebook</li>
+        <li><svg><use href="#i-check"/></svg>Importe et revend des produits sourcés en Chine</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GALERIE ================= -->
+<section class="alt">
+  <div class="wrap">
+    <h2 class="reveal">En formation avec URS Academy</h2>
+    <div class="gallery">
+      <figure class="reveal"><img src="session-groupe.jpg" alt="Photo de groupe de participants" loading="lazy"></figure>
+      <figure class="reveal"><img src="session-tableau.jpg" alt="Yannick Kiendrebeogo au tableau pendant une formation" loading="lazy"></figure>
+      <figure class="reveal"><img src="session-salle.jpg" alt="Participants en salle de formation" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BONUS ================= -->
+<section>
+  <div class="wrap">
+    <h2 class="reveal">Inclus avec ta place</h2>
+    <p class="intro reveal">La formation ne s'arrête pas dimanche soir.</p>
+    <div class="bonus">
+      <div class="bonus-item reveal"><div class="gift"><svg><use href="#i-gift"/></svg></div><div><h3>3 mois d'accompagnement privé</h3><p>Tu n'es pas seul pour lancer ton activité après la formation.</p></div></div>
+      <div class="bonus-item reveal"><div class="gift"><svg><use href="#i-gift"/></svg></div><div><h3>1 mois dans la Communauté des Millionnaires EDL</h3><p>Un cercle d'entrepreneurs pour avancer plus vite.</p></div></div>
+      <div class="bonus-item reveal"><div class="gift"><svg><use href="#i-gift"/></svg></div><div><h3>1 mois d'accès au siège URS Academy</h3><p>Un lieu à Ouaga 2000 pour travailler et poser tes questions.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TÉMOIGNAGES (masqué si vide) ================= -->
+<section class="alt hidden" id="temoignages">
+  <div class="wrap">
+    <h2 class="reveal">Ils sont passés par URS</h2>
+    <div class="testis" id="testiList"></div>
+  </div>
+</section>
+
+<!-- ================= OFFRE ET INSCRIPTION ================= -->
+<section class="offer" id="inscription">
+  <div class="wrap">
+    <h2>Réserve ta place pour dimanche</h2>
+    <p class="intro" id="seatsText"></p>
+    <div class="seats hidden" id="seats">
+      <div class="row"><span id="seatsLeft"></span><span id="seatsTotal"></span></div>
+      <div class="bar"><i id="seatsBar"></i></div>
+    </div>
+
+    <div class="offer-grid">
+      <div class="plans" role="radiogroup" aria-label="Formule de paiement">
+        <button type="button" class="plan" id="planTotal" role="radio" aria-checked="true" onclick="choisir('total')">
+          <span class="reco">Recommandé</span>
+          <div class="top"><span class="head"><span class="radio"></span><span class="name">Paiement total</span></span><span class="price" id="pTotal"></span></div>
+          <ul>
+            <li><svg><use href="#i-check"/></svg>Rien à payer le jour J</li>
+            <li><svg><use href="#i-check"/></svg>Ta place est confirmée et soldée dès aujourd'hui</li>
+            <li><svg><use href="#i-check"/></svg>Dimanche, tu arrives et tu t'installes</li>
+          </ul>
+        </button>
+        <button type="button" class="plan" id="planResa" role="radio" aria-checked="false" onclick="choisir('reservation')">
+          <div class="top"><span class="head"><span class="radio"></span><span class="name">Réservation</span></span><span class="price" id="pResa"></span></div>
+          <ul>
+            <li><svg><use href="#i-check"/></svg>Ta place est bloquée</li>
+            <li><svg><use href="#i-check"/></svg><span id="pSolde"></span></li>
+          </ul>
+        </button>
+      </div>
+
+      <div>
+        <!-- Étape 1 : infos -->
+        <div class="card" id="cardInfos">
+          <div class="steps"><span class="on">1. Tes infos</span><span>2. Paiement Wave</span><span>3. Confirmation</span></div>
+          <h3>Tes informations</h3>
+          <label for="nom">Nom</label><input type="text" id="nom" autocomplete="family-name" placeholder="Ton nom">
+          <label for="prenom">Prénom</label><input type="text" id="prenom" autocomplete="given-name" placeholder="Ton prénom">
+          <label for="fonction">Fonction ou profession</label><input type="text" id="fonction" placeholder="Étudiant, commerçant, salarié…">
+          <label for="telephone">Téléphone WhatsApp</label><input type="tel" id="telephone" autocomplete="tel" inputmode="tel" placeholder="70 00 00 00">
+          <div class="err hidden" id="errInfos">Remplis les 4 champs pour continuer.</div>
+          <button type="button" class="btn btn-main w100" style="margin-top:18px" onclick="validerFormulaire()">Continuer vers le paiement</button>
+          <p class="note">Tes informations servent uniquement à confirmer ton inscription.</p>
+        </div>
+
+        <!-- Étape 2 : paiement -->
+        <div class="card hidden" id="cardPaiement">
+          <div class="steps"><span class="on">1. Tes infos</span><span class="on">2. Paiement Wave</span><span>3. Confirmation</span></div>
+          <h3>Paiement par Wave</h3>
+          <div class="due"><span id="dueLabel"></span><b id="montantAPayer"></b></div>
+          <div class="wave-box">
+            Envoie ce montant avec l'application <b>Wave</b> au numéro :
+            <div class="num" id="waveNum"></div>
+            <button type="button" class="copy" onclick="copierNumero(this)">Copier le numéro</button>
+          </div>
+          <div class="upsell hidden" id="upsell">
+            Règle les <b id="upTotal"></b> maintenant et tu n'auras plus rien à payer dimanche.
+            <br><button type="button" onclick="choisir('total', true)">Passer au paiement total</button>
+          </div>
+
+          <form id="regForm" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="_subject" value="">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="nom" id="hiddenNom">
+            <input type="hidden" name="prenom" id="hiddenPrenom">
+            <input type="hidden" name="fonction" id="hiddenFonction">
+            <input type="hidden" name="telephone" id="hiddenTelephone">
+            <input type="hidden" name="formule" id="hiddenFormule">
+            <input type="hidden" name="montant" id="hiddenMontant">
+
+            <label for="capture">Capture de ton paiement Wave</label>
+            <label class="upload" id="uploadZone" for="capture">
+              <div id="uploadDefault"><svg><use href="#i-upload"/></svg><div class="t1">Ajoute ta capture d'écran</div><div class="t2">Elle sert de preuve de paiement</div></div>
+              <img id="previewImg" alt="Aperçu de ta capture" style="display:none;border-radius:10px;max-height:260px;margin:0 auto">
+            </label>
+            <input type="file" id="capture" name="capture" accept="image/*" onchange="previewCapture()">
+            <div class="err hidden" id="errCapture">Ajoute la capture de ton paiement Wave avant d'envoyer.</div>
+            <button type="button" class="btn btn-main w100" style="margin-top:18px" id="btnEnvoyer" onclick="confirmerInscription()">Envoyer mon inscription</button>
+          </form>
+          <p class="note">Tu préfères Orange Money ou Moov Money ? Écris-nous au <a id="altPay" href="#" target="_blank" rel="noopener">67 67 11 46</a>.</p>
+        </div>
+
+        <!-- Étape 3 : confirmation -->
+        <div class="card success hidden" id="cardSuccess">
+          <div class="steps"><span class="on">1. Tes infos</span><span class="on">2. Paiement Wave</span><span class="on">3. Confirmation</span></div>
+          <div class="check"><svg><use href="#i-check"/></svg></div>
+          <h3>Inscription envoyée</h3>
+          <p class="note" style="font-size:15px">Ta demande et ta capture de paiement ont bien été transmises. Dernière étape : confirme sur WhatsApp pour qu'on valide ton dossier.</p>
+          <button type="button" class="btn btn-wa w100" style="margin-top:16px" onclick="notifierWhatsapp()"><svg><use href="#i-wa"/></svg>Confirmer sur WhatsApp</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="alt">
+  <div class="wrap">
+    <h2 class="reveal">Questions fréquentes</h2>
+    <div class="faq">
+      <details class="reveal"><summary>Je n'ai aucune expérience, est-ce pour moi ?</summary><p>Oui. La formation est accessible même sans expérience : on part de zéro et on avance pas à pas. Si tu vends déjà, tu corriges ta méthode.</p></details>
+      <details class="reveal"><summary>Où et à quelle heure ?</summary><p id="faqLieu"></p></details>
+      <details class="reveal"><summary>Je peux réserver maintenant et payer le reste plus tard ?</summary><p id="faqResa"></p></details>
+      <details class="reveal"><summary>Comment je paie ?</summary><p>Par Wave au numéro indiqué à l'étape 2, puis tu ajoutes ta capture d'écran. Pour Orange Money ou Moov Money, écris-nous sur WhatsApp et on te guide.</p></details>
+      <details class="reveal"><summary>Et après la formation ?</summary><p>Tu as 3 mois d'accompagnement privé, 1 mois dans la Communauté des Millionnaires EDL et 1 mois d'accès au siège URS Academy à Ouaga 2000.</p></details>
+      <details class="reveal"><summary>Pourquoi seulement 15 places ?</summary><p>Parce que la formation est privée et pratique : chaque participant doit pouvoir travailler sur son propre projet et poser ses questions.</p></details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><b>URS Academy</b>, siège à Ouaga 2000. L'art d'innover et de bien faire.</p>
+    <p style="margin-top:6px">Infoline : <span id="footInfo"></span></p>
+    <p style="margin-top:14px;font-size:13px;opacity:.75">© 2026 URS Academy</p>
+  </div>
+</footer>
+
+<a class="wa-float" id="waFloat" href="#" target="_blank" rel="noopener" aria-label="Écrire sur WhatsApp"><svg><use href="#i-wa"/></svg></a>
+
+<div class="sticky" id="sticky">
+  <div class="p"><b id="stickyPrice"></b><small id="stickySub"></small></div>
+  <a class="btn btn-main" href="#inscription">Je m'inscris</a>
+</div>
 
 <script>
-  document.getElementById('eventName').textContent = CONFIG.EVENT_NAME.toUpperCase();
-  document.getElementById('infosPratiques').innerHTML =
-    `📅 ${CONFIG.EVENT_DATE}<br>🕘 ${CONFIG.EVENT_HORAIRE}<br>📍 ${CONFIG.EVENT_LIEU}`;
-  const fcfa = n => n.toLocaleString('fr-FR') + ' F';
-  document.getElementById('montantInscription').textContent = fcfa(CONFIG.PRIX_INSCRIPTION);
-  document.getElementById('montantTotal').textContent = fcfa(CONFIG.PRIX_TOTAL);
-  document.getElementById('offreTotal').textContent = fcfa(CONFIG.PRIX_TOTAL);
-  document.getElementById('detailSolde').textContent = 'Solde ' + fcfa(CONFIG.PRIX_SOLDE) + ' le jour J';
-  document.getElementById('waveNum').textContent = CONFIG.WAVE_NUMBER;
-  document.getElementById('infoline').textContent = '📞 ' + CONFIG.INFOLINE;
+  const $ = id => document.getElementById(id);
+  const fcfa = n => n.toLocaleString('fr-FR').replace(/ | /g,' ') + ' F';
+  const waLink = (num, txt) => `https://wa.me/${num}` + (txt ? `?text=${encodeURIComponent(txt)}` : '');
 
-  const LIBELLE_RESERVATION = `Réservation (${fcfa(CONFIG.PRIX_INSCRIPTION)}, solde ${fcfa(CONFIG.PRIX_SOLDE)} le jour J)`;
-  const LIBELLE_TOTAL = `Paiement total (${fcfa(CONFIG.PRIX_TOTAL)})`;
+  /* ---------- Remplissage depuis CONFIG ---------- */
+  $('fDate').textContent = CONFIG.EVENT_DATE;
+  $('fHeure').textContent = CONFIG.EVENT_HORAIRE;
+  $('fLieu').textContent = CONFIG.EVENT_LIEU;
+  $('fPlaces').textContent = CONFIG.PLACES_TOTAL + ' places';
+  $('pTotal').innerHTML = CONFIG.PRIX_TOTAL.toLocaleString('fr-FR') + ' <small>F</small>';
+  $('pResa').innerHTML = CONFIG.PRIX_RESERVATION.toLocaleString('fr-FR') + ' <small>F</small>';
+  $('pSolde').textContent = 'Solde de ' + fcfa(CONFIG.PRIX_SOLDE) + ' le dimanche sur place';
+  $('upTotal').textContent = fcfa(CONFIG.PRIX_TOTAL);
+  $('waveNum').textContent = CONFIG.WAVE_NUMBER;
+  $('footInfo').textContent = CONFIG.INFOLINE;
+  $('faqLieu').textContent = `${CONFIG.EVENT_DATE}, de ${CONFIG.EVENT_HORAIRE}, au ${CONFIG.EVENT_LIEU}.`;
+  $('faqResa').textContent = `Oui. Tu réserves avec ${fcfa(CONFIG.PRIX_RESERVATION)} par Wave, et tu règles les ${fcfa(CONFIG.PRIX_SOLDE)} restants le dimanche sur place. Si tu peux, le paiement total t'évite toute démarche le jour J.`;
+  $('stickyPrice').textContent = fcfa(CONFIG.PRIX_TOTAL);
+  $('stickySub').textContent = 'ou réservation ' + fcfa(CONFIG.PRIX_RESERVATION);
+  const questionTxt = `Bonjour, j'ai une question sur la ${CONFIG.EVENT_NAME} du ${CONFIG.EVENT_DATE}.`;
+  ['topWa','heroWa','waFloat','altPay'].forEach(id => $(id).href = waLink(CONFIG.WHATSAPP_INFOLINE, questionTxt));
 
-  let montantChoisi = CONFIG.PRIX_INSCRIPTION;
-  let typeChoisi = LIBELLE_RESERVATION;
-
-  function choisirMontant(type){
-    if(type === 'inscription'){
-      montantChoisi = CONFIG.PRIX_INSCRIPTION;
-      typeChoisi = LIBELLE_RESERVATION;
-      document.getElementById('tagInscription').classList.add('selected');
-      document.getElementById('tagTotal').classList.remove('selected');
-    } else {
-      montantChoisi = CONFIG.PRIX_TOTAL;
-      typeChoisi = LIBELLE_TOTAL;
-      document.getElementById('tagTotal').classList.add('selected');
-      document.getElementById('tagInscription').classList.remove('selected');
-    }
+  /* Places */
+  if (typeof CONFIG.PLACES_RESTANTES === 'number') {
+    const left = Math.max(0, CONFIG.PLACES_RESTANTES), taken = CONFIG.PLACES_TOTAL - left;
+    $('seatsText').textContent = left > 0 ? `Il reste ${left} place${left>1?'s':''} sur ${CONFIG.PLACES_TOTAL}.` : 'Complet. Écris-nous pour la liste d’attente.';
+    $('seats').classList.remove('hidden');
+    $('seatsLeft').textContent = `${taken} inscrit${taken>1?'s':''}`;
+    $('seatsTotal').textContent = `${CONFIG.PLACES_TOTAL} places`;
+    new IntersectionObserver((e,o)=>{ if(e[0].isIntersecting){ $('seatsBar').style.width = (taken/CONFIG.PLACES_TOTAL*100)+'%'; o.disconnect(); } }).observe($('seats'));
+  } else {
+    $('seatsText').textContent = `${CONFIG.PLACES_TOTAL} places au total, pour que chacun puisse travailler sur son projet.`;
   }
 
+  /* Témoignages */
+  if (CONFIG.TEMOIGNAGES.length) {
+    $('temoignages').classList.remove('hidden');
+    $('testiList').innerHTML = CONFIG.TEMOIGNAGES.map(t =>
+      `<figure class="testi reveal"><p>« ${t.texte} »</p><figcaption class="who2">${t.nom}${t.role?`<span>${t.role}</span>`:''}</figcaption></figure>`).join('');
+  }
+
+  /* ---------- Compte à rebours ---------- */
+  const start = new Date(CONFIG.EVENT_START).getTime();
+  const pad = n => String(n).padStart(2,'0');
+  function tick(){
+    const d = start - Date.now();
+    if (d <= 0) { $('countdown').innerHTML = '<div class="cd-done">La session a commencé. Écris-nous pour la prochaine.</div>'; return; }
+    $('cdJ').textContent = Math.floor(d/864e5);
+    $('cdH').textContent = pad(Math.floor(d/36e5)%24);
+    $('cdM').textContent = pad(Math.floor(d/6e4)%60);
+    $('cdS').textContent = pad(Math.floor(d/1e3)%60);
+    setTimeout(tick, 1000 - (Date.now()%1000));
+  }
+  tick();
+
+  /* ---------- Apparition au défilement ---------- */
+  const io = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach((el,i) => { el.style.transitionDelay = (i%3)*80 + 'ms'; io.observe(el); });
+
+  /* ---------- Barre fixe en bas (mobile) ---------- */
+  let heroOut = false, offerIn = false;
+  const syncSticky = () => $('sticky').classList.toggle('show', heroOut && !offerIn);
+  new IntersectionObserver(e => { heroOut = !e[0].isIntersecting; syncSticky(); }).observe($('haut'));
+  new IntersectionObserver(e => { offerIn = e[0].isIntersecting; syncSticky(); if (offerIn && !window._vc){ window._vc = 1; track('ViewContent', {content_name: CONFIG.EVENT_NAME, value: CONFIG.PRIX_TOTAL, currency: 'XOF'}); } }, {threshold:.15}).observe($('inscription'));
+
+  /* ---------- Formules ---------- */
+  let formule = 'total';
+  const montant = () => formule === 'total' ? CONFIG.PRIX_TOTAL : CONFIG.PRIX_RESERVATION;
+  const libelle = () => formule === 'total'
+    ? `Paiement total (${fcfa(CONFIG.PRIX_TOTAL)})`
+    : `Réservation (${fcfa(CONFIG.PRIX_RESERVATION)}, solde ${fcfa(CONFIG.PRIX_SOLDE)} le jour J)`;
+  function choisir(f, depuisUpsell){
+    formule = f;
+    $('planTotal').setAttribute('aria-checked', f === 'total');
+    $('planResa').setAttribute('aria-checked', f !== 'total');
+    majPaiement();
+    if (depuisUpsell) track('AddToCart', {value: CONFIG.PRIX_TOTAL, currency: 'XOF'});
+  }
+  function majPaiement(){
+    $('montantAPayer').textContent = fcfa(montant());
+    $('dueLabel').textContent = formule === 'total' ? 'Paiement total' : 'Réservation';
+    $('upsell').classList.toggle('hidden', formule === 'total');
+  }
+
+  /* ---------- Étape 1 ---------- */
+  const champs = () => ({ nom:$('nom').value.trim(), prenom:$('prenom').value.trim(), fonction:$('fonction').value.trim(), tel:$('telephone').value.trim() });
   function validerFormulaire(){
-    const nom = document.getElementById('nom').value.trim();
-    const prenom = document.getElementById('prenom').value.trim();
-    const fonction = document.getElementById('fonction').value.trim();
-    const tel = document.getElementById('telephone').value.trim();
-
-    if(!nom || !prenom || !fonction || !tel){
-      alert("Merci de remplir tous les champs avant de continuer.");
-      return;
-    }
-
-    document.getElementById('montantAPayer').textContent = montantChoisi.toLocaleString('fr-FR') + ' F';
-    document.getElementById('cardPaiement').classList.remove('hidden');
-    document.getElementById('cardPaiement').scrollIntoView({behavior:'smooth'});
+    const c = champs();
+    if (!c.nom || !c.prenom || !c.fonction || !c.tel){ $('errInfos').classList.remove('hidden'); return; }
+    $('errInfos').classList.add('hidden');
+    majPaiement();
+    $('cardInfos').classList.add('hidden');
+    $('cardPaiement').classList.remove('hidden');
+    $('cardPaiement').scrollIntoView({behavior:'smooth', block:'start'});
+    track('InitiateCheckout', {value: montant(), currency: 'XOF', content_name: libelle()});
   }
 
-  function copierNumero(){
-    navigator.clipboard.writeText(CONFIG.WAVE_NUMBER.replace(/\s/g,''));
-    alert("Numéro Wave copié : " + CONFIG.WAVE_NUMBER);
+  function copierNumero(btn){
+    const n = CONFIG.WAVE_NUMBER.replace(/\s/g,'');
+    const ok = () => { btn.textContent = 'Numéro copié'; setTimeout(()=>btn.textContent='Copier le numéro', 2200); };
+    if (navigator.clipboard) navigator.clipboard.writeText(n).then(ok, ok); else ok();
   }
 
   function previewCapture(){
-    const fileInput = document.getElementById('capture');
-    const img = document.getElementById('previewImg');
-    const zone = document.getElementById('uploadZone');
-    const defaultTxt = document.getElementById('uploadDefault');
-    if(fileInput.files && fileInput.files[0]){
-      const reader = new FileReader();
-      reader.onload = e => {
-        img.src = e.target.result;
-        img.style.display = 'block';
-        defaultTxt.style.display = 'none';
-        zone.classList.add('has-image');
-      };
-      reader.readAsDataURL(fileInput.files[0]);
-    }
+    const f = $('capture').files && $('capture').files[0];
+    if (!f) return;
+    const r = new FileReader();
+    r.onload = e => { $('previewImg').src = e.target.result; $('previewImg').style.display='block'; $('uploadDefault').style.display='none'; $('uploadZone').classList.add('has'); $('errCapture').classList.add('hidden'); };
+    r.readAsDataURL(f);
   }
 
-  function getMessageTexte(){
-    const nom = document.getElementById('nom').value.trim();
-    const prenom = document.getElementById('prenom').value.trim();
-    const fonction = document.getElementById('fonction').value.trim();
-    const tel = document.getElementById('telephone').value.trim();
-    return `Nouvelle inscription - ${CONFIG.EVENT_NAME}
-Nom : ${nom}
-Prénom : ${prenom}
-Fonction : ${fonction}
-Téléphone : ${tel}
-Formule choisie : ${typeChoisi}
-Montant déclaré : ${montantChoisi.toLocaleString('fr-FR')} F
-📎 Capture envoyée automatiquement par email.`;
+  function messageTexte(){
+    const c = champs();
+    return `Nouvelle inscription : ${CONFIG.EVENT_NAME}
+Nom : ${c.nom}
+Prénom : ${c.prenom}
+Fonction : ${c.fonction}
+Téléphone : ${c.tel}
+Formule : ${libelle()}
+Montant envoyé : ${fcfa(montant())}
+Capture envoyée par e-mail.`;
+  }
+
+  /* ---------- Étape 2 : envoi ---------- */
+  function confirmerInscription(){
+    const f = $('capture').files && $('capture').files[0];
+    if (!f){ $('errCapture').classList.remove('hidden'); return; }
+    const c = champs(), btn = $('btnEnvoyer');
+    btn.disabled = true; btn.textContent = 'Envoi en cours…';
+    const form = $('regForm');
+    form.action = `https://formsubmit.co/${CONFIG.NOTIFY_EMAIL}`;
+    form.querySelector('[name="_subject"]').value = `Nouvelle inscription : ${c.nom} ${c.prenom} (${fcfa(montant())})`;
+    form.querySelector('[name="_next"]').value = location.href.split('?')[0].split('#')[0] + '?success=1#inscription';
+    $('hiddenNom').value = c.nom; $('hiddenPrenom').value = c.prenom; $('hiddenFonction').value = c.fonction;
+    $('hiddenTelephone').value = c.tel; $('hiddenFormule').value = libelle(); $('hiddenMontant').value = montant() + ' F';
+    try { sessionStorage.setItem('ursMsg', messageTexte()); sessionStorage.setItem('ursMontant', String(montant())); } catch(e){}
+    track('Lead', {value: montant(), currency: 'XOF'});
+    setTimeout(() => form.submit(), 300);   // laisse le temps au pixel d'envoyer l'événement
   }
 
   function notifierWhatsapp(){
-    // Après la redirection FormSubmit, la page est rechargée et les champs sont vides :
-    // on récupère le message sauvegardé juste avant l'envoi.
-    let texte = null;
-    if(!document.getElementById('nom').value.trim()){
-      try{ texte = sessionStorage.getItem('ursInscriptionMsg'); }catch(e){}
-    }
-    if(!texte) texte = getMessageTexte();
-    const url = `https://wa.me/${CONFIG.WHATSAPP_NUMBER}?text=${encodeURIComponent(texte)}`;
-    window.open(url, '_blank');
+    let t = null;
+    if (!$('nom').value.trim()) { try { t = sessionStorage.getItem('ursMsg'); } catch(e){} }
+    window.open(waLink(CONFIG.WHATSAPP_CONFIRMATION, t || messageTexte()), '_blank');
   }
 
-  function confirmerInscription(){
-    const nom = document.getElementById('nom').value.trim();
-    const prenom = document.getElementById('prenom').value.trim();
-    const fonction = document.getElementById('fonction').value.trim();
-    const tel = document.getElementById('telephone').value.trim();
-    const fileInput = document.getElementById('capture');
-
-    if(!fileInput.files || !fileInput.files[0]){
-      alert("Merci de joindre la capture d'écran de ton paiement Wave avant d'envoyer.");
-      return;
-    }
-
-    if(CONFIG.NOTIFY_EMAIL.startsWith("COLLE_ICI")){
-      alert("⚠️ L'envoi n'est pas encore configuré par l'organisateur. Contacte directement le WhatsApp ci-dessous.");
-      return;
-    }
-
-    const btn = document.getElementById('btnEnvoyer');
-    btn.disabled = true;
-    btn.textContent = "Envoi en cours...";
-
-    const form = document.getElementById('regForm');
-    form.action = `https://formsubmit.co/${CONFIG.NOTIFY_EMAIL}`;
-    form.querySelector('[name="_subject"]').value = `Nouvelle inscription : ${nom} ${prenom} — ${CONFIG.EVENT_NAME}`;
-    form.querySelector('[name="_next"]').value = window.location.href.split('?')[0].split('#')[0] + '?success=1';
-    document.getElementById('hiddenNom').value = nom;
-    document.getElementById('hiddenPrenom').value = prenom;
-    document.getElementById('hiddenFonction').value = fonction;
-    document.getElementById('hiddenTelephone').value = tel;
-    document.getElementById('hiddenFormule').value = typeChoisi;
-    document.getElementById('hiddenMontant').value = montantChoisi + ' F';
-
-    try{ sessionStorage.setItem('ursInscriptionMsg', getMessageTexte()); }catch(e){}
-
-    // Vraie soumission de formulaire (pas fetch) : c'est la méthode fiable
-    // pour que FormSubmit transmette correctement la pièce jointe.
-    form.submit();
+  /* ---------- Retour après envoi (FormSubmit redirige avec ?success=1) ---------- */
+  if (location.search.includes('success=1')) {
+    $('cardInfos').classList.add('hidden');
+    $('cardSuccess').classList.remove('hidden');
+    let v = CONFIG.PRIX_TOTAL; try { v = Number(sessionStorage.getItem('ursMontant')) || v; } catch(e){}
+    if (!sessionStorage.getItem('ursTracked')) { track('CompleteRegistration', {value: v, currency: 'XOF'}); try{ sessionStorage.setItem('ursTracked','1'); }catch(e){} }
+    setTimeout(() => $('inscription').scrollIntoView({block:'start'}), 200);
   }
 
-  // Si on revient d'un envoi réussi (redirection FormSubmit avec ?success=1),
-  // on affiche directement le message de confirmation.
-  if(window.location.search.includes('success=1')){
-    window.addEventListener('DOMContentLoaded', () => {
-      document.getElementById('cardPaiement') && document.getElementById('cardPaiement').classList.add('hidden');
-      document.getElementById('cardSuccess').classList.remove('hidden');
-      document.getElementById('cardSuccess').scrollIntoView({behavior:'smooth'});
-    });
-  }
+  document.querySelectorAll('[data-track]').forEach(a => a.addEventListener('click', () => track('Contact', {content_name: 'cta_' + a.dataset.track})));
 </script>
-
 </body>
 </html>
