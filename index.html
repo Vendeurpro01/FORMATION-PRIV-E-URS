@@ -7,8 +7,10 @@
 
 <!-- 👉 Aperçu quand le lien est partagé sur Facebook/WhatsApp -->
 <meta property="og:title" content="Formation Privée — Marketing Digital & E-commerce | URS ACADEMY">
-<meta property="og:description" content="Marketing Digital, E-commerce, Vente, Intelligence Artificielle. Dimanche 12 Juillet 2026 à Ouaga 2000. Inscription en ligne.">
+<meta property="og:description" content="Formation 100% pratique & privée : Marketing Digital, E-commerce (Shopify, Alibaba), Vente, IA. Dimanche 4 octobre 2026 à Ouaga 2000. Réserve ta place en ligne.">
 <meta property="og:image" content="https://vendeurpro01.github.io/FORMATION-PRIV-E-URS/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:url" content="https://vendeurpro01.github.io/FORMATION-PRIV-E-URS/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
@@ -22,14 +24,15 @@
     WAVE_NUMBER: "+226 75490747",        // 👉 remplace par TON numéro Wave si différent
     WHATSAPP_NUMBER: "22675490747",      // 👉 numéro qui reçoit la notif rapide (optionnel)
     NOTIFY_EMAIL: "kiendrebeogoyannick7@gmail.com",
-    EVENT_NAME: "Formation Privée — Marketing Digital & E-commerce",
-    EVENT_DATE: "Dimanche 12 Juillet 2026",
+    EVENT_NAME: "Formation Privée — Marketing Digital & E‑commerce",
+    EVENT_DATE: "Dimanche 4 octobre 2026",
     EVENT_HORAIRE: "08h00 – 18h00",
     EVENT_LIEU: "Siège URS ACADEMY, Ouaga 2000",
-    PRIX_INSCRIPTION: 5000,
-    PRIX_TOTAL: 35000,
-    PRIX_SOLDE: 30000
+    INFOLINE: "(+226) 75 49 07 47 / 67 67 11 46",
+    PRIX_INSCRIPTION: 5000,              // 👉 réservation (acompte)
+    PRIX_TOTAL: 35000                    // 👉 prix total de la formation
   };
+  CONFIG.PRIX_SOLDE = CONFIG.PRIX_TOTAL - CONFIG.PRIX_INSCRIPTION; // calculé automatiquement
 </script>
 <style>
   :root{
@@ -65,6 +68,11 @@
   .logo-bubble .slogan{ font-size:12px; color:#555; font-weight:600; }
   .banner h1{ position:relative; z-index:1; font-size:26px; font-weight:800; line-height:1.3; text-shadow:0 3px 8px rgba(0,0,0,.25); }
   .banner .sub{ position:relative; z-index:1; font-size:15px; font-weight:600; margin-top:8px; opacity:.96; }
+  .badge{
+    position:relative; z-index:1; display:inline-block; margin-top:14px;
+    background:rgba(255,255,255,0.18); border:1.5px solid rgba(255,255,255,0.55);
+    border-radius:999px; padding:7px 16px; font-size:13px; font-weight:800; letter-spacing:.5px;
+  }
   .infos-pratiques{
     position:relative; z-index:1;
     margin-top:20px; background:rgba(0,0,0,0.18); border-radius:12px;
@@ -86,6 +94,9 @@
   .price-tag .amount{ font-size:22px; font-weight:800; color:var(--black); }
   .price-tag .label{ font-size:12px; font-weight:700; color:var(--red); margin-top:4px; }
   .price-tag .detail{ font-size:11px; color:#777; margin-top:4px; }
+  .offre{ font-size:12px; font-weight:800; color:var(--orange3); text-transform:uppercase; letter-spacing:.5px; margin-bottom:6px; }
+  .contact{ text-align:center; font-size:13px; color:#555; margin-top:6px; line-height:1.7; }
+  .contact a{ color:var(--black); font-weight:800; text-decoration:none; }
 
   label{ display:block; font-size:13px; font-weight:700; color:#333; margin:14px 0 6px; }
   input[type=text], input[type=tel]{
@@ -133,23 +144,33 @@
   </div>
   <h1 id="eventName"></h1>
   <div class="sub">Deviens autonome financièrement grâce au Digital</div>
+  <div class="badge">FORMATION 100% PRATIQUE &amp; PRIVÉE</div><br>
   <div class="infos-pratiques" id="infosPratiques"></div>
 </div>
 
 <div class="container">
 
   <div class="card">
+    <h2>🎯 Objectifs de la formation</h2>
+    <div class="checklist">
+      <div>✅ Comprendre et maîtriser les outils du digital</div>
+      <div>✅ Acquérir des compétences pour devenir financièrement autonome</div>
+      <div>✅ Mettre en place un système capable de générer jusqu'à 1 000 000 FCFA par mois</div>
+    </div>
+  </div>
+
+  <div class="card">
     <h2>📋 Au programme</h2>
     <div class="checklist">
-      <div>✅ Marketing Digital</div>
-      <div>✅ E-commerce</div>
-      <div class="sub">— Shopify · Alibaba</div>
-      <div>✅ Vente</div>
       <div>✅ Intelligence Artificielle (IA)</div>
+      <div>✅ Marketing Digital</div>
+      <div>✅ Vente &amp; E-commerce</div>
+      <div class="sub">— Shopify · Alibaba</div>
+      <div>✅ Croissance</div>
     </div>
     <div class="bonus">
       🎁 1 mois d'accès à la Communauté des Millionnaires EDL<br>
-      🎁 1 mois d'accès au Siège URS ACADEMY<br>
+      🎁 1 mois d'accès au Siège URS ACADEMY à Ouaga 2000<br>
       🎁 3 mois d'accompagnement privé
     </div>
   </div>
@@ -170,11 +191,12 @@
     <input type="tel" id="telephone" placeholder="Ex : 70 00 00 00">
 
     <label>Choisis ton mode de paiement</label>
+    <div class="offre">🔥 Offre spéciale : <span id="offreTotal"></span></div>
     <div class="price-box">
       <div class="price-tag selected" id="tagInscription" onclick="choisirMontant('inscription')">
         <div class="amount" id="montantInscription"></div>
-        <div class="label">Inscription seule</div>
-        <div class="detail">Solde 30 000 F le jour J</div>
+        <div class="label">Réservation</div>
+        <div class="detail" id="detailSolde"></div>
       </div>
       <div class="price-tag" id="tagTotal" onclick="choisirMontant('total')">
         <div class="amount" id="montantTotal"></div>
@@ -234,6 +256,11 @@
     <div class="footer-note">Dernière étape : confirme ton inscription sur WhatsApp pour qu'on valide ton dossier rapidement.</div>
   </div>
 
+  <div class="contact">
+    Infoline / plus d'informations<br>
+    <a href="https://wa.me/22675490747" target="_blank" id="infoline"></a>
+  </div>
+
 </div>
 
 
@@ -241,22 +268,29 @@
   document.getElementById('eventName').textContent = CONFIG.EVENT_NAME.toUpperCase();
   document.getElementById('infosPratiques').innerHTML =
     `📅 ${CONFIG.EVENT_DATE}<br>🕘 ${CONFIG.EVENT_HORAIRE}<br>📍 ${CONFIG.EVENT_LIEU}`;
-  document.getElementById('montantInscription').textContent = CONFIG.PRIX_INSCRIPTION.toLocaleString('fr-FR') + ' F';
-  document.getElementById('montantTotal').textContent = CONFIG.PRIX_TOTAL.toLocaleString('fr-FR') + ' F';
+  const fcfa = n => n.toLocaleString('fr-FR') + ' F';
+  document.getElementById('montantInscription').textContent = fcfa(CONFIG.PRIX_INSCRIPTION);
+  document.getElementById('montantTotal').textContent = fcfa(CONFIG.PRIX_TOTAL);
+  document.getElementById('offreTotal').textContent = fcfa(CONFIG.PRIX_TOTAL);
+  document.getElementById('detailSolde').textContent = 'Solde ' + fcfa(CONFIG.PRIX_SOLDE) + ' le jour J';
   document.getElementById('waveNum').textContent = CONFIG.WAVE_NUMBER;
+  document.getElementById('infoline').textContent = '📞 ' + CONFIG.INFOLINE;
+
+  const LIBELLE_RESERVATION = `Réservation (${fcfa(CONFIG.PRIX_INSCRIPTION)}, solde ${fcfa(CONFIG.PRIX_SOLDE)} le jour J)`;
+  const LIBELLE_TOTAL = `Paiement total (${fcfa(CONFIG.PRIX_TOTAL)})`;
 
   let montantChoisi = CONFIG.PRIX_INSCRIPTION;
-  let typeChoisi = 'Inscription seule (5 000 F)';
+  let typeChoisi = LIBELLE_RESERVATION;
 
   function choisirMontant(type){
     if(type === 'inscription'){
       montantChoisi = CONFIG.PRIX_INSCRIPTION;
-      typeChoisi = 'Inscription seule (5 000 F, solde 30 000 F le jour J)';
+      typeChoisi = LIBELLE_RESERVATION;
       document.getElementById('tagInscription').classList.add('selected');
       document.getElementById('tagTotal').classList.remove('selected');
     } else {
       montantChoisi = CONFIG.PRIX_TOTAL;
-      typeChoisi = 'Paiement total (35 000 F)';
+      typeChoisi = LIBELLE_TOTAL;
       document.getElementById('tagTotal').classList.add('selected');
       document.getElementById('tagInscription').classList.remove('selected');
     }
@@ -316,7 +350,14 @@ Montant déclaré : ${montantChoisi.toLocaleString('fr-FR')} F
   }
 
   function notifierWhatsapp(){
-    const url = `https://wa.me/${CONFIG.WHATSAPP_NUMBER}?text=${encodeURIComponent(getMessageTexte())}`;
+    // Après la redirection FormSubmit, la page est rechargée et les champs sont vides :
+    // on récupère le message sauvegardé juste avant l'envoi.
+    let texte = null;
+    if(!document.getElementById('nom').value.trim()){
+      try{ texte = sessionStorage.getItem('ursInscriptionMsg'); }catch(e){}
+    }
+    if(!texte) texte = getMessageTexte();
+    const url = `https://wa.me/${CONFIG.WHATSAPP_NUMBER}?text=${encodeURIComponent(texte)}`;
     window.open(url, '_blank');
   }
 
@@ -351,6 +392,8 @@ Montant déclaré : ${montantChoisi.toLocaleString('fr-FR')} F
     document.getElementById('hiddenTelephone').value = tel;
     document.getElementById('hiddenFormule').value = typeChoisi;
     document.getElementById('hiddenMontant').value = montantChoisi + ' F';
+
+    try{ sessionStorage.setItem('ursInscriptionMsg', getMessageTexte()); }catch(e){}
 
     // Vraie soumission de formulaire (pas fetch) : c'est la méthode fiable
     // pour que FormSubmit transmette correctement la pièce jointe.
