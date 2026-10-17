@@ -400,7 +400,7 @@
     </div>
     <div class="hero-photo">
       <div class="frame"><img src="yk-hero.jpg" alt="Yannick Kiendrebeogo, formateur URS Academy" width="900" height="1125"></div>
-      <div class="stamp" aria-hidden="true"><div class="j">Dimanche</div><div class="d">11</div><div class="m">oct. 2026</div></div>
+      <div class="stamp" aria-hidden="true"><div class="j">Dimanche</div><div class="d">25</div><div class="m">oct. 2026</div></div>
       <div class="name-tag"><b>Yannick Kiendrebeogo</b>Directeur général d'URS Group</div>
     </div>
   </div>
@@ -633,6 +633,7 @@
 
   /* ---------- Remplissage depuis CONFIG ---------- */
   $('fDate').textContent = CONFIG.EVENT_DATE;
+  { const dj = new Date(CONFIG.EVENT_START); const st = document.querySelector('.stamp .d'); if (st) st.textContent = dj.getUTCDate(); const sm = document.querySelector('.stamp .m'); if (sm) sm.textContent = dj.toLocaleDateString('fr-FR', {month:'short', year:'numeric', timeZone:'UTC'}); }
   $('fHeure').textContent = CONFIG.EVENT_HORAIRE;
   $('fLieu').textContent = CONFIG.EVENT_LIEU;
   $('fPlaces').textContent = CONFIG.PLACES_TOTAL + ' places';
